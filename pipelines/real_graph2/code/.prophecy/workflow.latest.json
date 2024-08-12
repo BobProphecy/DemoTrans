@@ -1,0 +1,1240 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.29",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "demo",
+    "uri" : "pipelines/real_graph2",
+    "language" : "python",
+    "fabricId" : "9631",
+    "frontEndLanguage" : "python",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.demotranspiler.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ],
+      "initialCode" : "from prophecy.utils import ABIUtil, BigDecimal, getContentAsStream, substring_scala\n",
+      "isAbInitioTranspilerImport" : true
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "OP_AGG_RPT_FILE",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "e2",
+    "source" : "Sort_1",
+    "sourcePort" : "Sort_1__out",
+    "target" : "Join",
+    "targetPort" : "Join__in2"
+  }, {
+    "id" : "e1",
+    "source" : "Sort",
+    "sourcePort" : "Sort__out",
+    "target" : "Join",
+    "targetPort" : "Join__in1"
+  }, {
+    "id" : "e3",
+    "source" : "Input_File",
+    "sourcePort" : "Input_File__out",
+    "target" : "Sort",
+    "targetPort" : "Sort__inDF"
+  }, {
+    "id" : "e5",
+    "source" : "Input_File_1",
+    "sourcePort" : "Input_File_1__out",
+    "target" : "Sort_1",
+    "targetPort" : "Sort_1__inDF"
+  }, {
+    "id" : "e6",
+    "source" : "Sort_2",
+    "sourcePort" : "Sort_2__out",
+    "target" : "Output_File",
+    "targetPort" : "Output_File__inDF"
+  }, {
+    "id" : "e4",
+    "source" : "Rollup",
+    "sourcePort" : "Rollup__out",
+    "target" : "Rollup_Reformat",
+    "targetPort" : "Rollup_Reformat__inDF"
+  }, {
+    "id" : "e7",
+    "source" : "Rollup_Reformat",
+    "sourcePort" : "Rollup_Reformat__out",
+    "target" : "Reformat",
+    "targetPort" : "Reformat__inDF"
+  }, {
+    "id" : "e8",
+    "source" : "Reformat",
+    "sourcePort" : "Reformat__out",
+    "target" : "Sort_2",
+    "targetPort" : "Sort_2__inDF"
+  }, {
+    "id" : "Ztd3sTwlIdL3pt-MMjOjs$$NFYf-PyTGzpNcKaXR3Slr",
+    "source" : "uEl838FRziEfFKWPAU9V2$$h3lI2dkGGeyJAZ7R_GBRV",
+    "sourcePort" : "curr2RYRDMrk4KetKkeK6$$ZQZRMDwOHnAvX4-9mAhbO",
+    "target" : "fzK9zRA-V-sL7sDE4fedR$$c3JJWqSK3-McUfqNGpqlu",
+    "targetPort" : "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy"
+  }, {
+    "id" : "OlaAUAqepy-Ggld_fEvEM$$9Us6Qhwpg0hbYZGoh643W",
+    "source" : "C5_JUniVSAOLWc2vi8Cn0$$9-tBnF0vfTavYUtBj_WU2",
+    "sourcePort" : "PaxDBXvGdOVS4mUZwXB73$$Vw9nFIyqcwLO-0y6KvETc",
+    "target" : "fzK9zRA-V-sL7sDE4fedR$$c3JJWqSK3-McUfqNGpqlu",
+    "targetPort" : "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM"
+  }, {
+    "id" : "qZQZKDHkhYZQ53ARqGnaC$$EP7eQUrSQwgTyu0POthBm",
+    "source" : "fzK9zRA-V-sL7sDE4fedR$$c3JJWqSK3-McUfqNGpqlu",
+    "sourcePort" : "4oOJBSlJbjD4K3S6tj_x1$$M7hgyI8Rqd6yk8L1HpilU",
+    "target" : "qdSv-o8r9WYpAz9LgSzGX$$fEJ8XyitwiBLhUclQ_a9V",
+    "targetPort" : "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu"
+  }, {
+    "id" : "8W1AI9pzBb3OYeXEm4t6L",
+    "source" : "qdSv-o8r9WYpAz9LgSzGX$$fEJ8XyitwiBLhUclQ_a9V",
+    "sourcePort" : "51TWbmNUxHdRpjPY53T9v$$ViWOet1Cr0zlvYT6vBXnL",
+    "target" : "Rollup",
+    "targetPort" : "Rollup__inDF"
+  } ],
+  "processes" : {
+    "fzK9zRA-V-sL7sDE4fedR$$c3JJWqSK3-McUfqNGpqlu" : {
+      "id" : "fzK9zRA-V-sL7sDE4fedR$$c3JJWqSK3-McUfqNGpqlu",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "join_by_customer_id",
+        "slug" : "join_by_customer_id",
+        "x" : 320,
+        "y" : -220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Combines customer information from two datasets based on their customer IDs, including their names and associated amounts.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "4oOJBSlJbjD4K3S6tj_x1$$M7hgyI8Rqd6yk8L1HpilU",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.customer_id\")==col(\"in1.customer_id\")"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.customer_id\")"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.first_name\")"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.last_name\")"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.amount\")"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##first_name", "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##amount", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##last_name", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "qdSv-o8r9WYpAz9LgSzGX$$fEJ8XyitwiBLhUclQ_a9V" : {
+      "id" : "qdSv-o8r9WYpAz9LgSzGX$$fEJ8XyitwiBLhUclQ_a9V",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "reformatted_join_by_customer_id",
+        "slug" : "reformatted_join_by_customer_id",
+        "x" : 500,
+        "y" : -220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Reformats a DataFrame by selecting specific columns related to customer information.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu",
+          "slug" : "join_by_customer_id",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "51TWbmNUxHdRpjPY53T9v$$ViWOet1Cr0zlvYT6vBXnL",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"first_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"last_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##last_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##customer_id", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##first_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##amount" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Rollup_Reformat" : {
+      "id" : "Rollup_Reformat",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Rollup_Reformat",
+        "slug" : "Rollup_Reformat",
+        "x" : 820,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Rollup_Reformat__inDF",
+          "slug" : "inDF",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Rollup_Reformat__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"first_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"last_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Input_File_1" : {
+      "id" : "Input_File_1",
+      "component" : "Todo",
+      "metadata" : {
+        "label" : "Input_File_1",
+        "slug" : "Input_File_1",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Input_File_1__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "error" : " Error parsing the schema for the component.\n Please check if the file(s) orders.dml have been uploaded.\n Please check if the parameter(s) AI_DML have been defined.",
+        "code" : "${AI_DML}/orders.dml ;",
+        "numOutports" : 1
+      }
+    },
+    "Sort_1" : {
+      "id" : "Sort_1",
+      "component" : "Todo",
+      "metadata" : {
+        "label" : "Sort_1",
+        "slug" : "Sort_1",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Sort_1__inDF",
+          "slug" : "inDF"
+        } ],
+        "outputs" : [ {
+          "id" : "Sort_1__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "error" : " Error parsing the schema for the component.\n Please check if the file(s) orders.dml have been uploaded.\n Please check if the parameter(s) AI_DML have been defined.",
+        "code" : "${AI_DML}/orders.dml ;",
+        "numOutports" : 1
+      }
+    },
+    "Sort_2" : {
+      "id" : "Sort_2",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "Sort_2",
+        "slug" : "Sort_2",
+        "x" : 1220,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Sort_2__inDF",
+          "slug" : "inDF",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Sort_2__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "uEl838FRziEfFKWPAU9V2$$h3lI2dkGGeyJAZ7R_GBRV" : {
+      "id" : "uEl838FRziEfFKWPAU9V2$$h3lI2dkGGeyJAZ7R_GBRV",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "hello_world_hw_customers",
+        "slug" : "hello_world_hw_customers",
+        "x" : 180,
+        "y" : -160,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "curr2RYRDMrk4KetKkeK6$$ZQZRMDwOHnAvX4-9mAhbO",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/hello_world_hw_customers"
+      }
+    },
+    "Output_File" : {
+      "id" : "Output_File",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "Output_File",
+        "slug" : "Output_File",
+        "x" : 1420,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Output_File__inDF",
+          "slug" : "inDF",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Output_File"
+      }
+    },
+    "Rollup" : {
+      "id" : "Rollup",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "Rollup",
+        "slug" : "Rollup",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Rollup__inDF",
+          "slug" : "inDF",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Rollup__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "first(col(\"first_name\"))"
+          },
+          "description" : "",
+          "_row_id" : "307528922"
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "first(col(\"last_name\"))"
+          },
+          "description" : "",
+          "_row_id" : "1833057506"
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "sum(col(\"amount\"))"
+          },
+          "description" : "",
+          "_row_id" : "2038967399"
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "groupBy",
+        "columnsSelector" : [ "Rollup__inDF##amount", "Rollup__inDF##last_name", "Rollup__inDF##first_name" ],
+        "groupBy" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : "",
+          "_row_id" : "158625474"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "C5_JUniVSAOLWc2vi8Cn0$$9-tBnF0vfTavYUtBj_WU2" : {
+      "id" : "C5_JUniVSAOLWc2vi8Cn0$$9-tBnF0vfTavYUtBj_WU2",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "hello_world_hw_orders",
+        "slug" : "hello_world_hw_orders",
+        "x" : 180,
+        "y" : -300,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "PaxDBXvGdOVS4mUZwXB73$$Vw9nFIyqcwLO-0y6KvETc",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/hello_world_hw_orders"
+      }
+    },
+    "Input_File" : {
+      "id" : "Input_File",
+      "component" : "Todo",
+      "metadata" : {
+        "label" : "Input_File",
+        "slug" : "Input_File",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Input_File__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "error" : " Error parsing the schema for the component.\n Please check if the file(s) customer_read.dml have been uploaded.\n Please check if the parameter(s) AI_DML have been defined.",
+        "code" : "${AI_DML}/customer_read.dml ;",
+        "numOutports" : 1
+      }
+    },
+    "Join" : {
+      "id" : "Join",
+      "component" : "Todo",
+      "metadata" : {
+        "label" : "Join",
+        "slug" : "Join",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Join__in2",
+          "slug" : "in2"
+        }, {
+          "id" : "Join__in1",
+          "slug" : "in1"
+        } ],
+        "outputs" : [ {
+          "id" : "Join__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "error" : "begin 0, end -1, length 35",
+        "code" : "<component>\n      <name>Join</name>\n      <type>hash-join</type>\n      <layout>layout-Join</layout>\n      \n      <in-port><in0><format>${AI_DML}/customer_read.dml ;</format><error>/include/error-info.dml ;</error><reject>${AI_DML}/customer_read.dml ;</reject><unused>${AI_DML}/customer_read.dml ;</unused><dedup>false</dedup></in0><in1><format>${AI_DML}/orders.dml ;</format><error>/include/error-info.dml ;</error><reject>${AI_DML}/orders.dml ;</reject><unused>${AI_DML}/orders.dml ;</unused><dedup>false</dedup></in1></in-port>\n      \n      <out-port><out><format>record\n  string(&quot;,&quot;) first_name;\nstring(&quot;,&quot;) last_name;\n  decimal(&quot;,&quot;) customer_id;\ndecimal(&quot;\\n&quot;) amount;\nend ;</format><transform>${AI_XFR}/customer_order_join.xfr ;</transform></out></out-port>\n      \n      \n      \n      \n      \n      \n      <count>2</count><condition_interpretation>Remove Completely</condition_interpretation><ramp>0.0</ramp><key>customer_id</key><subgraph></subgraph><join-type>Inner join</join-type><limit>0</limit>\n      \n    </component>",
+        "numOutports" : 1
+      }
+    },
+    "Reformat" : {
+      "id" : "Reformat",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat",
+        "slug" : "Reformat",
+        "x" : 1020,
+        "y" : 120,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Reformat__inDF",
+          "slug" : "inDF",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Reformat__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "lit(None).cast(StringType())"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Sort" : {
+      "id" : "Sort",
+      "component" : "Todo",
+      "metadata" : {
+        "label" : "Sort",
+        "slug" : "Sort",
+        "x" : 220,
+        "y" : 220,
+        "phase" : 3,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Sort__inDF",
+          "slug" : "inDF"
+        } ],
+        "outputs" : [ {
+          "id" : "Sort__out",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : true,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "error" : " Error parsing the schema for the component.\n Please check if the file(s) customer_read.dml have been uploaded.\n Please check if the parameter(s) AI_DML have been defined.",
+        "code" : "${AI_DML}/customer_read.dml ;",
+        "numOutports" : 1
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.processes.Input_File_1",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Could not find the spec for Todo",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.Input_File",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Could not find the spec for Todo",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.Sort_1",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Could not find the spec for Todo",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.Sort",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Could not find the spec for Todo",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.processes.Join",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "Could not find the spec for Todo",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}
