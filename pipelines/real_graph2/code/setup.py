@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-    name = 'real_graph_fixed',
+    name = 'AbInitio-real_graph_fixed',
     version = '1.0',
     packages = find_packages(include = ('job*', )) + ['prophecy_config_instances'],
     package_dir = {'prophecy_config_instances' : 'configs/resources/config'},

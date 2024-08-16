@@ -12,7 +12,7 @@ buildSystemDetails:
   createdAt: '2024-08-09 15:26:32'
 pipelines:
   pipelines/real_graph1:
-    name: real_graph_raw_import
+    name: AbInitio-real_graph_raw_import
     description: null
     author: bobw@prophecy.io
     mode: batch
@@ -26,7 +26,7 @@ pipelines:
     subgraphs: []
     dependencies: {}
   pipelines/real_graph2:
-    name: real_graph_fixed
+    name: AbInitio-real_graph_fixed
     description: null
     author: bobw@prophecy.io
     mode: batch
@@ -42,7 +42,7 @@ pipelines:
     subgraphs: []
     dependencies: {}
   pipelines/ACCT_BAL_TIMST_LEVEL_04_DEPOSITS:
-    name: ACCT_BAL_TIMST_LEVEL_04_DEPOSITS
+    name: Datastage-ACCT_BAL_TIMST_LEVEL_04_DEPOSITS
     description: null
     author: bobw@prophecy.io
     mode: batch
