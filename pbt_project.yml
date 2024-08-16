@@ -41,6 +41,37 @@ pipelines:
       - datasets/Output_File
     subgraphs: []
     dependencies: {}
+  pipelines/ACCT_BAL_TIMST_LEVEL_04_DEPOSITS:
+    name: ACCT_BAL_TIMST_LEVEL_04_DEPOSITS
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-16 14:25:11'
+    datasets:
+      inputs:
+      - datasets/ABalBstmtDPSTHash
+      - datasets/ABalCstmtDPSTHash
+      - datasets/ABalEstmtDPSTHash
+      - datasets/ABalNULLstmtDPSTHash
+      - datasets/ABalNstmtDPSTHash
+      - datasets/ABalPstmtDPSTHash
+      - datasets/ABalTstmtDPSTHash
+      - datasets/AcctBalTimstDpstDailyHash_Lkp
+      - datasets/AcctBal_Timst_INTRATE_Dpst_Hash_REF
+      - datasets/DepositTIMSTHash_REF
+      - datasets/DepositTIMSTNaturalHash_REF
+      - datasets/ECF_STATUSCD_IN2_Hash
+      - datasets/OdateHash_REF
+      - datasets/TIMST
+      outputs:
+      - datasets/AcctBal_Timst_Dpst_Hash
+      - datasets/AcctBal_Timst_INTRATE_Dpst_Hash
+      - datasets/DepositTIMSTHash
+      - datasets/Timst_Daily_stg
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/Output_File:
     name: Output_File
@@ -81,6 +112,240 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-08-09 19:25:19'
+  datasets/AcctBalTimstDpstDailyHash_Lkp:
+    name: AcctBalTimstDpstDailyHash_Lkp
+    description: 'Dataset for componentName: AcctBalTimstDpstDailyHash_Lkp'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/DepositTIMSTNaturalHash_REF:
+    name: DepositTIMSTNaturalHash_REF
+    description: 'Dataset for componentName: DepositTIMSTNaturalHash_REF'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/OdateHash_REF:
+    name: OdateHash_REF
+    description: 'Dataset for componentName: OdateHash_REF'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/ABalNULLstmtDPSTHash:
+    name: ABalNULLstmtDPSTHash
+    description: 'Dataset for componentName: ABalNULLstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/ECF_STATUSCD_IN2_Hash:
+    name: ECF_STATUSCD_IN2_Hash
+    description: 'Dataset for componentName: ECF_STATUSCD_IN2_Hash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/AcctBal_Timst_Dpst_Hash:
+    name: AcctBal_Timst_Dpst_Hash
+    description: 'Dataset for componentName: AcctBal_Timst_Dpst_Hash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:09'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:09'
+  datasets/ABalEstmtDPSTHash:
+    name: ABalEstmtDPSTHash
+    description: 'Dataset for componentName: ABalEstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/DepositTIMSTHash_REF:
+    name: DepositTIMSTHash_REF
+    description: 'Dataset for componentName: DepositTIMSTHash_REF'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/AcctBal_Timst_INTRATE_Dpst_Hash:
+    name: AcctBal_Timst_INTRATE_Dpst_Hash
+    description: 'Dataset for componentName: AcctBal_Timst_INTRATE_Dpst_Hash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/ABalNstmtDPSTHash:
+    name: ABalNstmtDPSTHash
+    description: 'Dataset for componentName: ABalNstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/Timst_Daily_stg:
+    name: Timst_Daily_stg
+    description: 'Dataset for componentName: Timst_Daily_stg'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/AcctBal_Timst_INTRATE_Dpst_Hash_REF:
+    name: AcctBal_Timst_INTRATE_Dpst_Hash_REF
+    description: 'Dataset for componentName: AcctBal_Timst_INTRATE_Dpst_Hash_REF'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/ABalPstmtDPSTHash:
+    name: ABalPstmtDPSTHash
+    description: 'Dataset for componentName: ABalPstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/ABalCstmtDPSTHash:
+    name: ABalCstmtDPSTHash
+    description: 'Dataset for componentName: ABalCstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/ABalTstmtDPSTHash:
+    name: ABalTstmtDPSTHash
+    description: 'Dataset for componentName: ABalTstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/ABalBstmtDPSTHash:
+    name: ABalBstmtDPSTHash
+    description: 'Dataset for componentName: ABalBstmtDPSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/DepositTIMSTHash:
+    name: DepositTIMSTHash
+    description: 'Dataset for componentName: DepositTIMSTHash'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
+  datasets/TIMST:
+    name: TIMST
+    description: 'Dataset for componentName: TIMST'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-16 14:25:10'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-16 14:25:10'
 templates: {}
 jobs: {}
 gemContainer:
@@ -91,7 +356,23 @@ gemContainer:
 functions:
   author: null
   createdAt: '2024-08-09 15:26:32'
-  udfs: {}
+  udfs:
+    udfs/noofdaysinyear:
+      name: noofdaysinyear
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: bobw@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
+    udfs/setrptrecind:
+      name: setrptrecind
+      description: ''
+      tags: []
+      inputs: []
+      outputs: []
+      author: bobw@prophecy.io
+      createdAt: '2022-12-15 18:04:50'
   udafs: {}
   expressions: {}
   airflowFunctions: {}
@@ -108,16 +389,23 @@ sqlPipeline: null
 dependencies:
 - modifiedAt: '2024-08-09T15:26:32.778624Z'
   name: plibMaven
-  version: 8.0.29
+  version: 8.0.31
   id: '807008467'
   createdAt: '2024-08-09T15:26:32.778624Z'
   type: plibMaven
-- modifiedAt: '2024-08-09T15:26:32.778624Z'
-  name: plibPypi
+  enabled: true
+  entity: Project
+- modifiedAt: '2024-08-14T14:48:26.233Z'
+  name: ProphecyLibsPython
   version: 1.9.9
   id: '1528918909'
   createdAt: '2024-08-09T15:26:32.778624Z'
   type: plibPypi
+  enabled: true
+  entity: Project
+  description: Default dependency for Prophecy Libs
+  scope: Project
+  editable: true
 projectDependencies:
   '12654':
     projectUID: 12654
