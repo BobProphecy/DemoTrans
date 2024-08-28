@@ -1,0 +1,1844 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.31",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "graph",
+    "uri" : "pipelines/INFA1_COMM_MDM_m_STG_PUB_PTY",
+    "language" : "python",
+    "fabricId" : "9631",
+    "frontEndLanguage" : "python",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.demotranspiler.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "RECEIVED_FILE_ID",
+          "kind" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "BATCH_RUN_ID",
+          "kind" : {
+            "type" : "string",
+            "value" : "0"
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "DATA_DT",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "TARGET_TABLE1",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "edge_30",
+    "source" : "Customer_Orders_EXP",
+    "sourcePort" : "cZABDSE5S0DpdaAkuz-5F",
+    "target" : "Customer_Orders",
+    "targetPort" : "sPjTfN48-gfpNCfF25HQv"
+  }, {
+    "id" : "edge_31",
+    "source" : "Sum_Amounts",
+    "sourcePort" : "4McnkVIViMbqQjx7mbQqc",
+    "target" : "Customer_Orders_EXP",
+    "targetPort" : "5EBZs8kBm1RP-c1O1hAgH"
+  }, {
+    "id" : "edge_32",
+    "source" : "Customers",
+    "sourcePort" : "ZVsqlKMK-O8Am_9KYfgtS",
+    "target" : "SQ_CUSTOMER",
+    "targetPort" : "0SnpBFjZNbnheIQ3cIIwW"
+  }, {
+    "id" : "edge_33",
+    "source" : "Cleanup",
+    "sourcePort" : "zKZ1MOdSlU4pFi1JNtvdq",
+    "target" : "Sum_Amounts",
+    "targetPort" : "Wr3xV4yptwVYVVOHnPFfM"
+  }, {
+    "id" : "edge_34",
+    "source" : "SQ_Orders",
+    "sourcePort" : "PZml2vGyAUDkRsoukGXza",
+    "target" : "By_Customer_ID_add_missing_column",
+    "targetPort" : "nZZVUbNwIfXNFkZHCoYaS"
+  }, {
+    "id" : "edge_35",
+    "source" : "By_Customer_ID_add_missing_column",
+    "sourcePort" : "8y0l99-usi0ty0vwhtREE",
+    "target" : "By_Customer_ID",
+    "targetPort" : "gqI9snmax1WoU4S0CldK8"
+  }, {
+    "id" : "edge_36",
+    "source" : "SQ_CUSTOMER",
+    "sourcePort" : "zyxQGeaqaPyB2F4MWo2VM",
+    "target" : "By_Customer_ID",
+    "targetPort" : "in1"
+  }, {
+    "id" : "edge_37",
+    "source" : "Orders",
+    "sourcePort" : "uxc6ktoYfNY3JuRGFIR68",
+    "target" : "SQ_Orders",
+    "targetPort" : "RPh5PSI78Q8MQs2SZAyqa"
+  }, {
+    "id" : "edge_38",
+    "source" : "By_Customer_ID",
+    "sourcePort" : "VzGCsOq7v7H4Hso01sWUi",
+    "target" : "Cleanup_add_missing_column",
+    "targetPort" : "lmX7vtsQEjFvFn1YFBhs9"
+  }, {
+    "id" : "edge_39",
+    "source" : "Cleanup_add_missing_column",
+    "sourcePort" : "lhx2gHQbADM2oB6fKjLfy",
+    "target" : "Cleanup",
+    "targetPort" : "roTTb3k8cwvMAFlms_waN"
+  } ],
+  "processes" : {
+    "Customer_Orders_EXP" : {
+      "id" : "Customer_Orders_EXP",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Customer_Orders_EXP",
+        "slug" : "Customer_Orders_EXP",
+        "x" : 1420,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "5EBZs8kBm1RP-c1O1hAgH",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orders",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amounts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "cZABDSE5S0DpdaAkuz-5F",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "orders",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"orders\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "amounts",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amounts\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_length_days",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account_length_days\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Cleanup" : {
+      "id" : "Cleanup",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Cleanup",
+        "slug" : "Cleanup",
+        "x" : 1020,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "roTTb3k8cwvMAFlms_waN",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "REFERRAL_CONSUMER_COUNT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CAS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CC",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_PROFILE_KEY2",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "decimal(22,0)",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "zKZ1MOdSlU4pFi1JNtvdq",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_length_days",
+          "expression" : {
+            "format" : "python",
+            "expression" : "lit(100)"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "By_Customer_ID" : {
+      "id" : "By_Customer_ID",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "By_Customer_ID",
+        "slug" : "By_Customer_ID",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "gqI9snmax1WoU4S0CldK8",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CC",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CAS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "REFERRAL_CONSUMER_COUNT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_PROFILE_KEY2",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "in1",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "VzGCsOq7v7H4Hso01sWUi",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.customer_id\") == col(\"in0.customer_id\")"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "_row_id" : "431142945",
+          "target" : "REFERRAL_CONSUMER_COUNT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.REFERRAL_CONSUMER_COUNT\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "2034718993",
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.first_name\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1632944041",
+          "target" : "order_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.order_id\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "546997217",
+          "target" : "ENROLLMENT_SOURCE_ID_CAS",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.ENROLLMENT_SOURCE_ID_CAS\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "805647127",
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1658309236",
+          "target" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.CC_LOYALTY_PRMRY_CONTACT_FLAG\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1084083340",
+          "target" : "ENROLLMENT_SOURCE_ID_CC",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.ENROLLMENT_SOURCE_ID_CC\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1221577244",
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.amount\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "615790458",
+          "target" : "CONSUMER_PROFILE_KEY2",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.CONSUMER_PROFILE_KEY2\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "680536010",
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.account_open_date\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1570133055",
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.last_name\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "659728106",
+          "target" : "order_status",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.order_status\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "670117068",
+          "target" : "order_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.order_date\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "2093170952",
+          "target" : "CONSUMER_ID",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.CONSUMER_ID\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1672820212",
+          "target" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.CAS_LOYALTY_PRMRY_CONTACT_FLAG\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "528787490",
+          "target" : "phone",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.phone\")"
+          },
+          "description" : ""
+        } ],
+        "hints" : [ {
+          "id" : "in0",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "in1",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_Orders" : {
+      "id" : "SQ_Orders",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_Orders",
+        "slug" : "SQ_Orders",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "RPh5PSI78Q8MQs2SZAyqa",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The category of the order placed by the customer",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "PZml2vGyAUDkRsoukGXza",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "order_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_status",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_status\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "order_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"order_date\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"amount\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_CUSTOMER" : {
+      "id" : "SQ_CUSTOMER",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_CUSTOMER",
+        "slug" : "SQ_CUSTOMER",
+        "x" : 420,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "0SnpBFjZNbnheIQ3cIIwW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "zyxQGeaqaPyB2F4MWo2VM",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"first_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"last_name\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "phone",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"phone\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"account_open_date\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Customer_Orders" : {
+      "id" : "Customer_Orders",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "Customer_Orders",
+        "slug" : "Customer_Orders",
+        "x" : 1620,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "sPjTfN48-gfpNCfF25HQv",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orders",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amounts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Customer_Orders"
+      }
+    },
+    "By_Customer_ID_add_missing_column" : {
+      "id" : "By_Customer_ID_add_missing_column",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "By_Customer_ID_add_missing_column",
+        "slug" : "By_Customer_ID_add_missing_column",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "nZZVUbNwIfXNFkZHCoYaS",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "8y0l99-usi0ty0vwhtREE",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "ENROLLMENT_SOURCE_ID_CC",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "ENROLLMENT_SOURCE_ID_CAS",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "CONSUMER_ID",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "REFERRAL_CONSUMER_COUNT",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "CONSUMER_PROFILE_KEY2",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Customers" : {
+      "id" : "Customers",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Customers",
+        "slug" : "Customers",
+        "x" : 220,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "ZVsqlKMK-O8Am_9KYfgtS",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Customers"
+      }
+    },
+    "Cleanup_add_missing_column" : {
+      "id" : "Cleanup_add_missing_column",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "Cleanup_add_missing_column",
+        "slug" : "Cleanup_add_missing_column",
+        "x" : 820,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "lmX7vtsQEjFvFn1YFBhs9",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "REFERRAL_CONSUMER_COUNT",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CAS",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ENROLLMENT_SOURCE_ID_CC",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_PROFILE_KEY2",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Current status of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Date when the order was placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CONSUMER_ID",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "lhx2gHQbADM2oB6fKjLfy",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "account_length_days",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(DecimalType(22,0))"
+            }
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Sum_Amounts" : {
+      "id" : "Sum_Amounts",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "Sum_Amounts",
+        "slug" : "Sum_Amounts",
+        "x" : 1220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Wr3xV4yptwVYVVOHnPFfM",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each order placed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The unique ID of the customer who placed the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Total monetary value of the order",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "4McnkVIViMbqQjx7mbQqc",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "orders",
+          "expression" : {
+            "format" : "python",
+            "expression" : "count(col(\"order_id\"))"
+          },
+          "description" : ""
+        }, {
+          "target" : "amounts",
+          "expression" : {
+            "format" : "python",
+            "expression" : "sum(col(\"amount\"))"
+          },
+          "description" : ""
+        }, {
+          "target" : "account_length_days",
+          "expression" : {
+            "format" : "python",
+            "expression" : "first(col(\"account_length_days\"))"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Orders" : {
+      "id" : "Orders",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Orders",
+        "slug" : "Orders",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true,
+        "comment" : "Loads order data from a CSV file for further analysis and reporting.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "uxc6ktoYfNY3JuRGFIR68",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Orders"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.metainfo.udfs.udfs[0].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition noofdaysinyear",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.metainfo.udfs.udfs[1].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition setrptrecind",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}

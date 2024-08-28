@@ -72,6 +72,53 @@ pipelines:
       - datasets/Timst_Daily_stg
     subgraphs: []
     dependencies: {}
+  pipelines/DS_ACCT_BAL_TIMST_LEVEL_04_DEPOSITS:
+    name: DS_ACCT_BAL_TIMST_LEVEL_04_DEPOSITS
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-19 16:38:45'
+    datasets:
+      inputs:
+      - datasets/ABalBstmtDPSTHash
+      - datasets/ABalCstmtDPSTHash
+      - datasets/ABalEstmtDPSTHash
+      - datasets/ABalNULLstmtDPSTHash
+      - datasets/ABalNstmtDPSTHash
+      - datasets/ABalPstmtDPSTHash
+      - datasets/ABalTstmtDPSTHash
+      - datasets/AcctBalTimstDpstDailyHash_Lkp
+      - datasets/AcctBal_Timst_INTRATE_Dpst_Hash_REF
+      - datasets/DepositTIMSTHash_REF
+      - datasets/DepositTIMSTNaturalHash_REF
+      - datasets/ECF_STATUSCD_IN2_Hash
+      - datasets/OdateHash_REF
+      - datasets/TIMST
+      outputs:
+      - datasets/AcctBal_Timst_Dpst_Hash
+      - datasets/AcctBal_Timst_INTRATE_Dpst_Hash
+      - datasets/DepositTIMSTHash
+      - datasets/Timst_Daily_stg
+    subgraphs: []
+    dependencies: {}
+  pipelines/INFA1_COMM_MDM_m_STG_PUB_PTY:
+    name: INFA1_COMM_MDM_m_STG_PUB_PTY
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-20 13:37:46'
+    datasets:
+      inputs:
+      - datasets/Customers
+      - datasets/Orders
+      outputs:
+      - datasets/Customer_Orders
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/Output_File:
     name: Output_File
@@ -346,6 +393,45 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-08-16 14:25:10'
+  datasets/Customer_Orders:
+    name: Customer_Orders
+    description: 'Dataset for componentName: Customer_Orders'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-20 13:37:45'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-20 13:37:45'
+  datasets/Customers:
+    name: Customers
+    description: 'Dataset for componentName: Customers'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-20 13:37:45'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-20 13:37:45'
+  datasets/Orders:
+    name: Orders
+    description: 'Dataset for componentName: Orders'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-20 13:37:45'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-20 13:37:46'
 templates: {}
 jobs: {}
 gemContainer:
