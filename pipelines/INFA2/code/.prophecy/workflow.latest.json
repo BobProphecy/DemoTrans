@@ -12,7 +12,7 @@
       }
     },
     "id" : "graph",
-    "uri" : "pipelines/INFA1_COMM_MDM_m_STG_PUB_PTY",
+    "uri" : "pipelines/INFA2",
     "language" : "python",
     "fabricId" : "9631",
     "frontEndLanguage" : "python",
@@ -99,137 +99,67 @@
     "configurationVersion" : "v2"
   },
   "connections" : [ {
-    "id" : "edge_31",
+    "id" : "edge_364",
+    "source" : "Customer_Orders_EXP",
+    "sourcePort" : "iZZmTlab5nBsr55YqhrOG",
+    "target" : "Customer_Orders",
+    "targetPort" : "leJd0U-JQ4os175AdMZ6c"
+  }, {
+    "id" : "edge_365",
     "source" : "Sum_Amounts",
-    "sourcePort" : "4McnkVIViMbqQjx7mbQqc",
+    "sourcePort" : "ZOrdLL0zNGwVzIA4KSpQI",
     "target" : "Customer_Orders_EXP",
-    "targetPort" : "5EBZs8kBm1RP-c1O1hAgH"
+    "targetPort" : "57nQwAnHm2G7VlThFUSVP"
   }, {
-    "id" : "edge_33",
+    "id" : "edge_366",
+    "source" : "Customers",
+    "sourcePort" : "Z-Xl00lyapK6lZhQ1zzR6",
+    "target" : "SQ_CUSTOMER",
+    "targetPort" : "KGb2fdAK1ySmSEwj8Ytr6"
+  }, {
+    "id" : "edge_367",
     "source" : "Cleanup",
-    "sourcePort" : "zKZ1MOdSlU4pFi1JNtvdq",
+    "sourcePort" : "o5kh9TSKTuB02lzj2rcuw",
     "target" : "Sum_Amounts",
-    "targetPort" : "Wr3xV4yptwVYVVOHnPFfM"
+    "targetPort" : "xQNQvAKCTWLwTw2BRFYdW"
   }, {
-    "id" : "edge_34",
+    "id" : "edge_368",
     "source" : "SQ_Orders",
-    "sourcePort" : "PZml2vGyAUDkRsoukGXza",
+    "sourcePort" : "VUSZUIU1QbOEsqH1HGBx6",
     "target" : "By_Customer_ID_add_missing_column",
-    "targetPort" : "nZZVUbNwIfXNFkZHCoYaS"
+    "targetPort" : "WG5FI_nV4uFD7I7YaWaGX"
   }, {
-    "id" : "edge_35",
+    "id" : "edge_369",
     "source" : "By_Customer_ID_add_missing_column",
-    "sourcePort" : "8y0l99-usi0ty0vwhtREE",
+    "sourcePort" : "5cpdvMxtGvIAm3q-wF_Su",
     "target" : "By_Customer_ID",
-    "targetPort" : "gqI9snmax1WoU4S0CldK8"
+    "targetPort" : "igvIhgOdLwJeSHyJMxWmD"
   }, {
-    "id" : "edge_36",
+    "id" : "edge_370",
     "source" : "SQ_CUSTOMER",
-    "sourcePort" : "zyxQGeaqaPyB2F4MWo2VM",
+    "sourcePort" : "yu5Y3M_K-_pg8VhBeSG96",
     "target" : "By_Customer_ID",
     "targetPort" : "in1"
   }, {
-    "id" : "edge_38",
-    "source" : "By_Customer_ID",
-    "sourcePort" : "VzGCsOq7v7H4Hso01sWUi",
-    "target" : "Cleanup_add_missing_column",
-    "targetPort" : "lmX7vtsQEjFvFn1YFBhs9"
-  }, {
-    "id" : "edge_39",
-    "source" : "Cleanup_add_missing_column",
-    "sourcePort" : "lhx2gHQbADM2oB6fKjLfy",
-    "target" : "Cleanup",
-    "targetPort" : "roTTb3k8cwvMAFlms_waN"
-  }, {
-    "id" : "gukdGV0p4yQITcS6oUFWa",
-    "source" : "026KukWZYjVeU0T3MyIDw$$ePaTLC9nFUst3oNw6JMjA",
-    "sourcePort" : "-mfURSMNkTRCG1ZG6171X$$Mers0XlMJRBT6Qok_YVvx",
+    "id" : "edge_371",
+    "source" : "Orders",
+    "sourcePort" : "bv0lIMZXOQeFxtvjrt5AO",
     "target" : "SQ_Orders",
-    "targetPort" : "RPh5PSI78Q8MQs2SZAyqa"
+    "targetPort" : "TCXwmDU9LqISUEr8QASKD"
   }, {
-    "id" : "TMIs9AJV0dJyq-6e69zSt",
-    "source" : "Yu3caTnXkSIXqSaiYuUhP$$-JNuGWrh4L6UNFH4nW_cC",
-    "sourcePort" : "oQR_8a_qdu0VLmwgrGYWd$$DWHXpmp-lsEnd1SdR-mlR",
-    "target" : "SQ_CUSTOMER",
-    "targetPort" : "0SnpBFjZNbnheIQ3cIIwW"
+    "id" : "edge_372",
+    "source" : "By_Customer_ID",
+    "sourcePort" : "OjlS8472-EblqrBmAn4I_",
+    "target" : "Cleanup_add_missing_column",
+    "targetPort" : "CDAV2sdA2USjKObyInYUd"
   }, {
-    "id" : "a5ZkryJP8MuQCX0bWJXMX$$12biOMrXZEjtYyh6zlkbW",
-    "source" : "Customer_Orders_EXP",
-    "sourcePort" : "cZABDSE5S0DpdaAkuz-5F",
-    "target" : "JGy0ChfF_G96K-_JGa2rM$$KY-PzrBeOkywSxUTXM6ZX",
-    "targetPort" : "v7vbX13NT-soakhGkxWxK$$N1lNUZq0w4YKR4p8n68l0"
+    "id" : "edge_373",
+    "source" : "Cleanup_add_missing_column",
+    "sourcePort" : "w9H712ZvWVpeZ4ukvqa8D",
+    "target" : "Cleanup",
+    "targetPort" : "E0zo73l0Tj2OX_pTIxxYK"
   } ],
   "processes" : {
-    "JGy0ChfF_G96K-_JGa2rM$$KY-PzrBeOkywSxUTXM6ZX" : {
-      "id" : "JGy0ChfF_G96K-_JGa2rM$$KY-PzrBeOkywSxUTXM6ZX",
-      "component" : "Target",
-      "metadata" : {
-        "label" : "CustOrders_fixed",
-        "slug" : "CustOrders_fixed",
-        "x" : 1580,
-        "y" : 120,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false,
-        "comment" : "Exports customer order data to a CSV file for reporting or analysis purposes.",
-        "autoUpdateComment" : true
-      },
-      "ports" : {
-        "inputs" : [ {
-          "id" : "v7vbX13NT-soakhGkxWxK$$N1lNUZq0w4YKR4p8n68l0",
-          "slug" : "in0",
-          "schema" : {
-            "type" : "struct",
-            "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "orders",
-              "type" : "long",
-              "nullable" : false,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "amounts",
-              "type" : "double",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "account_length_days",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            } ]
-          },
-          "isStreaming" : false
-        } ],
-        "outputs" : [ ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/custorders_fixed"
-      }
-    },
     "Customer_Orders_EXP" : {
       "id" : "Customer_Orders_EXP",
       "component" : "Reformat",
@@ -245,7 +175,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "5EBZs8kBm1RP-c1O1hAgH",
+          "id" : "57nQwAnHm2G7VlThFUSVP",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -254,7 +184,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -290,7 +220,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "cZABDSE5S0DpdaAkuz-5F",
+          "id" : "iZZmTlab5nBsr55YqhrOG",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -349,7 +279,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "roTTb3k8cwvMAFlms_waN",
+          "id" : "E0zo73l0Tj2OX_pTIxxYK",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -367,7 +297,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The first name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -376,7 +306,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -394,7 +324,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -418,10 +348,10 @@
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -436,10 +366,10 @@
               }
             }, {
               "name" : "account_open_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The date when the customer's account was opened",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -448,7 +378,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The last name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -457,16 +387,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Current status of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "order_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Date when the order was placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -493,7 +423,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Contact phone number of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -511,7 +441,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "zKZ1MOdSlU4pFi1JNtvdq",
+          "id" : "o5kh9TSKTuB02lzj2rcuw",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -570,7 +500,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "gqI9snmax1WoU4S0CldK8",
+          "id" : "igvIhgOdLwJeSHyJMxWmD",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -579,7 +509,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -588,7 +518,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -597,25 +527,25 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Current status of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "order_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Date when the order was placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -695,7 +625,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -704,7 +634,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The first name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -713,7 +643,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The last name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -722,16 +652,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Contact phone number of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "account_open_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The date when the customer's account was opened",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -740,7 +670,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "VzGCsOq7v7H4Hso01sWUi",
+          "id" : "OjlS8472-EblqrBmAn4I_",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -757,7 +687,7 @@
           "joinType" : "inner"
         } ],
         "expressions" : [ {
-          "_row_id" : "431142945",
+          "_row_id" : "1061010365",
           "target" : "REFERRAL_CONSUMER_COUNT",
           "expression" : {
             "format" : "python",
@@ -765,7 +695,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "2034718993",
+          "_row_id" : "1419188797",
           "target" : "first_name",
           "expression" : {
             "format" : "python",
@@ -773,7 +703,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1632944041",
+          "_row_id" : "513283670",
           "target" : "order_id",
           "expression" : {
             "format" : "python",
@@ -781,7 +711,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "546997217",
+          "_row_id" : "934288513",
           "target" : "ENROLLMENT_SOURCE_ID_CAS",
           "expression" : {
             "format" : "python",
@@ -789,7 +719,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "805647127",
+          "_row_id" : "1691538858",
           "target" : "customer_id",
           "expression" : {
             "format" : "python",
@@ -797,7 +727,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1658309236",
+          "_row_id" : "412270540",
           "target" : "CC_LOYALTY_PRMRY_CONTACT_FLAG",
           "expression" : {
             "format" : "python",
@@ -805,7 +735,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1084083340",
+          "_row_id" : "1839143983",
           "target" : "ENROLLMENT_SOURCE_ID_CC",
           "expression" : {
             "format" : "python",
@@ -813,7 +743,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1221577244",
+          "_row_id" : "22604215",
           "target" : "amount",
           "expression" : {
             "format" : "python",
@@ -821,7 +751,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "615790458",
+          "_row_id" : "466816579",
           "target" : "CONSUMER_PROFILE_KEY2",
           "expression" : {
             "format" : "python",
@@ -829,7 +759,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "680536010",
+          "_row_id" : "1919233824",
           "target" : "account_open_date",
           "expression" : {
             "format" : "python",
@@ -837,7 +767,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1570133055",
+          "_row_id" : "1404696062",
           "target" : "last_name",
           "expression" : {
             "format" : "python",
@@ -845,7 +775,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "659728106",
+          "_row_id" : "1287017954",
           "target" : "order_status",
           "expression" : {
             "format" : "python",
@@ -853,7 +783,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "670117068",
+          "_row_id" : "1012773758",
           "target" : "order_date",
           "expression" : {
             "format" : "python",
@@ -861,7 +791,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "2093170952",
+          "_row_id" : "722947927",
           "target" : "CONSUMER_ID",
           "expression" : {
             "format" : "python",
@@ -869,7 +799,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "1672820212",
+          "_row_id" : "987387692",
           "target" : "CAS_LOYALTY_PRMRY_CONTACT_FLAG",
           "expression" : {
             "format" : "python",
@@ -877,7 +807,7 @@
           },
           "description" : ""
         }, {
-          "_row_id" : "528787490",
+          "_row_id" : "645000227",
           "target" : "phone",
           "expression" : {
             "format" : "python",
@@ -921,7 +851,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "RPh5PSI78Q8MQs2SZAyqa",
+          "id" : "TCXwmDU9LqISUEr8QASKD",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -930,7 +860,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -939,16 +869,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_status",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Current status of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -957,25 +878,34 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Category of the order placed by the customer",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "order_date",
-              "type" : "date",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Date when the order was placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -984,7 +914,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "PZml2vGyAUDkRsoukGXza",
+          "id" : "VUSZUIU1QbOEsqH1HGBx6",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1050,43 +980,25 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "0SnpBFjZNbnheIQ3cIIwW",
+          "id" : "KGb2fdAK1ySmSEwj8Ytr6",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
             "fields" : [ {
-              "name" : "customer_id",
-              "type" : "integer",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Unique identifier for each customer",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
               "name" : "first_name",
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The first name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "last_name",
-              "type" : "string",
+              "name" : "customer_id",
+              "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The last name of the customer",
-                "mappings" : [ ],
-                "tags" : [ ]
-              }
-            }, {
-              "name" : "phone",
-              "type" : "string",
-              "nullable" : true,
-              "metadata" : {
-                "description" : "Contact phone number of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1095,7 +1007,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Email address of the customer",
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1104,16 +1025,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Code representing the customer's country",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
-              "name" : "account_open_date",
-              "type" : "date",
+              "name" : "last_name",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The date when the customer's account was opened",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1122,7 +1043,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Flags indicating special conditions or statuses of the customer's account",
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1131,7 +1061,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "zyxQGeaqaPyB2F4MWo2VM",
+          "id" : "yu5Y3M_K-_pg8VhBeSG96",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1188,8 +1118,8 @@
       "metadata" : {
         "label" : "Customer_Orders",
         "slug" : "Customer_Orders",
-        "x" : 1600,
-        "y" : 300,
+        "x" : 1620,
+        "y" : 120,
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
@@ -1197,8 +1127,49 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "sPjTfN48-gfpNCfF25HQv",
-          "slug" : "in0"
+          "id" : "leJd0U-JQ4os175AdMZ6c",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "orders",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amounts",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_length_days",
+              "type" : "integer",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
         } ],
         "outputs" : [ ],
         "selectedInputFields" : [ ],
@@ -1224,7 +1195,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "nZZVUbNwIfXNFkZHCoYaS",
+          "id" : "WG5FI_nV4uFD7I7YaWaGX",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -1233,7 +1204,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1242,7 +1213,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1251,25 +1222,25 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Current status of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "order_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Date when the order was placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1278,7 +1249,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "8y0l99-usi0ty0vwhtREE",
+          "id" : "5cpdvMxtGvIAm3q-wF_Su",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1471,7 +1442,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "ZVsqlKMK-O8Am_9KYfgtS",
+          "id" : "Z-Xl00lyapK6lZhQ1zzR6",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1480,33 +1451,6 @@
       },
       "properties" : {
         "datasetId" : "datasets/Customers"
-      }
-    },
-    "Yu3caTnXkSIXqSaiYuUhP$$-JNuGWrh4L6UNFH4nW_cC" : {
-      "id" : "Yu3caTnXkSIXqSaiYuUhP$$-JNuGWrh4L6UNFH4nW_cC",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "Customers_fixed",
-        "slug" : "Customers_fixed",
-        "x" : 220,
-        "y" : 360,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "oQR_8a_qdu0VLmwgrGYWd$$DWHXpmp-lsEnd1SdR-mlR",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/customers_fixed"
       }
     },
     "Cleanup_add_missing_column" : {
@@ -1524,7 +1468,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "lmX7vtsQEjFvFn1YFBhs9",
+          "id" : "CDAV2sdA2USjKObyInYUd",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -1542,7 +1486,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The first name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1551,7 +1495,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1569,7 +1513,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1593,10 +1537,10 @@
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1611,10 +1555,10 @@
               }
             }, {
               "name" : "account_open_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The date when the customer's account was opened",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1623,7 +1567,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "The last name of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1632,16 +1576,16 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Current status of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "order_date",
-              "type" : "date",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Date when the order was placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1668,7 +1612,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Contact phone number of the customer",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1677,7 +1621,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "lhx2gHQbADM2oB6fKjLfy",
+          "id" : "w9H712ZvWVpeZ4ukvqa8D",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1731,7 +1675,7 @@
       },
       "ports" : {
         "inputs" : [ {
-          "id" : "Wr3xV4yptwVYVVOHnPFfM",
+          "id" : "xQNQvAKCTWLwTw2BRFYdW",
           "slug" : "in0",
           "schema" : {
             "type" : "struct",
@@ -1740,7 +1684,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each order placed",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1749,16 +1693,16 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "The unique ID of the customer who placed the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
             }, {
               "name" : "amount",
-              "type" : "double",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Total monetary value of the order",
+                "description" : "",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1776,7 +1720,7 @@
           "isStreaming" : false
         } ],
         "outputs" : [ {
-          "id" : "4McnkVIViMbqQjx7mbQqc",
+          "id" : "ZOrdLL0zNGwVzIA4KSpQI",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1827,33 +1771,6 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "026KukWZYjVeU0T3MyIDw$$ePaTLC9nFUst3oNw6JMjA" : {
-      "id" : "026KukWZYjVeU0T3MyIDw$$ePaTLC9nFUst3oNw6JMjA",
-      "component" : "Source",
-      "metadata" : {
-        "label" : "Orders_fixed",
-        "slug" : "Orders_fixed",
-        "x" : 20,
-        "y" : -120,
-        "phase" : 0,
-        "cache" : false,
-        "detailedStats" : false,
-        "isImported" : false
-      },
-      "ports" : {
-        "inputs" : [ ],
-        "outputs" : [ {
-          "id" : "-mfURSMNkTRCG1ZG6171X$$Mers0XlMJRBT6Qok_YVvx",
-          "slug" : "out"
-        } ],
-        "selectedInputFields" : [ ],
-        "isCustomOutputSchema" : false,
-        "autoUpdateOnRun" : false
-      },
-      "properties" : {
-        "datasetId" : "datasets/orders_fixed"
-      }
-    },
     "Orders" : {
       "id" : "Orders",
       "component" : "Source",
@@ -1866,13 +1783,13 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : true,
-        "comment" : "Loads order data from a CSV file for further analysis and reporting.",
+        "comment" : "Loads order data from a CSV file, enabling analysis of customer orders and their statuses.",
         "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "uxc6ktoYfNY3JuRGFIR68",
+          "id" : "bv0lIMZXOQeFxtvjrt5AO",
           "slug" : "out0"
         } ],
         "selectedInputFields" : [ ],
@@ -1921,22 +1838,6 @@
     },
     "severity" : 1,
     "message" : "udf annotation is missing for definition setrptrecind",
-    "tags" : [ ],
-    "relatedInformation" : [ ]
-  }, {
-    "property" : "$.workflow.processes.Customer_Orders",
-    "range" : {
-      "start" : {
-        "line" : 0,
-        "character" : 0
-      },
-      "end" : {
-        "line" : 0,
-        "character" : 0
-      }
-    },
-    "severity" : 1,
-    "message" : "Please connect input port in0",
     "tags" : [ ],
     "relatedInformation" : [ ]
   } ]

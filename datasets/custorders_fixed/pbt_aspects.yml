@@ -6,7 +6,7 @@ schema:
     type: integer
     nullable: true
     metadata:
-      description: ''
+      description: The unique ID of the customer who placed the order
       mappings: []
       tags: []
   - name: orders

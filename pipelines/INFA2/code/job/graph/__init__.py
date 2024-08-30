@@ -5,10 +5,7 @@ from .SQ_CUSTOMER import SQ_CUSTOMER
 from .Customers import Customers
 from .By_Customer_ID_add_missing_column import By_Customer_ID_add_missing_column
 from .Customer_Orders_EXP import Customer_Orders_EXP
-from .CustOrders_fixed import CustOrders_fixed
 from .Cleanup import Cleanup
 from .Cleanup_add_missing_column import Cleanup_add_missing_column
 from .SQ_Orders import SQ_Orders
-from .Orders_fixed import Orders_fixed
 from .Customer_Orders import Customer_Orders
-from .Customers_fixed import Customers_fixed
