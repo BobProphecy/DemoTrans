@@ -1,0 +1,18 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: Machine Group ID
+    type: double
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: Regex
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

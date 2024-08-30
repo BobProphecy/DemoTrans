@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 setup(
-    name = 'AbInitio-real_graph_raw',
+    name = 'Alteryx_Big_Model_raw',
     version = '1.0',
     packages = find_packages(include = ('job*', )) + ['prophecy_config_instances'],
     package_dir = {'prophecy_config_instances' : 'configs/resources/config'},

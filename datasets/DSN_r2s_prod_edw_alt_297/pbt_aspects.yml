@@ -1,0 +1,11 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: work_center_id
+    type: integer
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []

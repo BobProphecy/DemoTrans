@@ -1,0 +1,13 @@
+from pyspark.sql import *
+from pyspark.sql.functions import *
+from pyspark.sql.types import *
+from prophecy.utils import *
+from prophecy.libs import typed_lit
+from job.config.ConfigStore import *
+from job.udfs.UDFs import *
+
+def Join_280_left_UnionLeftOuter(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
+    return in0\
+        .alias("in0")\
+        .join(in1.alias("in1"), (col("in0.PartId") == col("in1.PartId")), "leftouter")\
+        .select(col("in1.Packaging").alias("Packaging"), col("in0.ReportingSeries").alias("ReportingSeries"), col("in1.FiberType").alias("FiberType"), col("in1.Lead").alias("Lead"), col("in1.WireGauge").alias("WireGauge"), col("in1.ScrewRetention").alias("ScrewRetention"), col("in1.DeadChannels").alias("DeadChannels"), col("in1.LeadFree").alias("LeadFree"), col("in1.SpaceOption").alias("SpaceOption"), col("in1.Ends").alias("Ends"), col("in1.Polarized").alias("Polarized"), col("in1.Latching").alias("Latching"), col("in1.Entry").alias("Entry"), col("in1.Shield").alias("Shield"), col("in1.ReverseConnector").alias("ReverseConnector"), col("in1.ReceivingChannels").alias("ReceivingChannels"), col("in1.WiringOption").alias("WiringOption"), col("in1.Direction").alias("Direction"), col("in0.PartId").alias("PartId"), col("in1.SurfaceMount").alias("SurfaceMount"), col("in1.DaisyChain").alias("DaisyChain"), col("in1.Pad").alias("Pad"), col("in1.OpticEnd").alias("OpticEnd"), col("in1.Key").alias("Key"), col("in1.Retention").alias("Retention"), col("in1.TransmittingChannels").alias("TransmittingChannels"), col("in1.ReverseWire").alias("ReverseWire"), col("in1.Engines").alias("Engines"), col("in1.MiddleReverse").alias("MiddleReverse"), col("in1.Positions").alias("Positions"), col("in1.StrainRelief").alias("StrainRelief"), col("in0.PartNumber").alias("PartNumber"), col("in1.PowerPins").alias("PowerPins"), col("in1.MechanicalSample").alias("MechanicalSample"), col("in1.DifferentialPair").alias("DifferentialPair"), col("in1.Pitch").alias("Pitch"), col("in1.Alignment").alias("Alignment"), col("in1.Length").alias("Length"), col("in0.MaterialId").alias("MaterialId"), col("in1.OutsideReverse").alias("OutsideReverse"), col("in1.CableOptions").alias("CableOptions"), col("in1.Mount").alias("Mount"), col("in1.Notch").alias("Notch"), col("in1.OpticsType").alias("OpticsType"), col("in1.Breakout").alias("Breakout"), col("in1.Rows").alias("Rows"), col("in1.PartId").alias("Right_PartId"), col("in1.CableRetention").alias("CableRetention"), col("in0.LikePartNumber").alias("LikePartNumber"), col("in1.ReverseNotch").alias("ReverseNotch"), col("in1.Speed").alias("Speed"), col("in1.Gender").alias("Gender"), col("in1.Plating").alias("Plating"))

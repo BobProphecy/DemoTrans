@@ -12,7 +12,7 @@ buildSystemDetails:
   createdAt: '2024-08-09 15:26:32'
 pipelines:
   pipelines/real_graph1:
-    name: AbInitio-real_graph_raw_import
+    name: AbInitio-real_graph_raw
     description: null
     author: bobw@prophecy.io
     mode: batch
@@ -105,6 +105,54 @@ pipelines:
       - datasets/Orders
       outputs:
       - datasets/Customer_Orders
+    subgraphs: []
+    dependencies: {}
+  pipelines/Alteryx_customer_demo_raw:
+    name: Alteryx_customer_demo_raw
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-30 16:16:14'
+    datasets:
+      inputs:
+      - datasets/customers_csv
+      - datasets/orders_csv
+      outputs:
+      - datasets/report_csv
+    subgraphs: []
+    dependencies: {}
+  pipelines/Alteryx_Big_Model_raw:
+    name: Alteryx_Big_Model_raw
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-08-30 16:18:50'
+    datasets:
+      inputs:
+      - datasets/DSN_r2s_prod_edw_alt
+      - datasets/DSN_r2s_prod_edw_alt_297
+      - datasets/DSN_r2s_prod_edw_alt_298
+      - datasets/DSN_r2s_prod_edw_alt_301
+      - datasets/ManufacturingOrder_y
+      - datasets/PartSeriesPlusOption
+      - datasets/ProcessOrderTransact
+      - datasets/ProcessOrder_yxdb
+      - datasets/aka_bisql_Query_sele
+      - datasets/aka_bisql_Query_sele_154
+      - datasets/aka_bisql_Query_sele_158
+      - datasets/aka_bisql_Query_sele_183
+      - datasets/aka_bisql_Query_sele_185
+      - datasets/aka_bisql_Query_sele_232
+      - datasets/aka_miscsql_Query_se
+      - datasets/aka_miscsql_Query_se_168
+      outputs:
+      - datasets/DSN_edw_Query_manufa
+      - datasets/DSN_r2s_prod_aa_alte
+      - datasets/MachineCapacity_yxdb
     subgraphs: []
     dependencies: {}
 datasets:
@@ -459,6 +507,292 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-08-30 16:07:10'
+  datasets/report_csv:
+    name: report_csv
+    description: 'Dataset for componentName: report_csv'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:16:13'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:16:13'
+  datasets/customers_csv:
+    name: customers_csv
+    description: 'Dataset for componentName: customers_csv'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:16:14'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:16:14'
+  datasets/orders_csv:
+    name: orders_csv
+    description: 'Dataset for componentName: orders_csv'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:16:14'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:16:14'
+  datasets/aka_miscsql_Query_se:
+    name: aka_miscsql_Query_se
+    description: 'Dataset for componentName: aka_miscsql_Query_se'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/DSN_r2s_prod_aa_alte:
+    name: DSN_r2s_prod_aa_alte
+    description: 'Dataset for componentName: DSN_r2s_prod_aa_alte'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/aka_bisql_Query_sele_158:
+    name: aka_bisql_Query_sele_158
+    description: 'Dataset for componentName: aka_bisql_Query_sele_158'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/ProcessOrder_yxdb:
+    name: ProcessOrder_yxdb
+    description: 'Dataset for componentName: ProcessOrder_yxdb'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/DSN_r2s_prod_edw_alt:
+    name: DSN_r2s_prod_edw_alt
+    description: 'Dataset for componentName: DSN_r2s_prod_edw_alt'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/DSN_r2s_prod_edw_alt_298:
+    name: DSN_r2s_prod_edw_alt_298
+    description: 'Dataset for componentName: DSN_r2s_prod_edw_alt_298'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/DSN_edw_Query_manufa:
+    name: DSN_edw_Query_manufa
+    description: 'Dataset for componentName: DSN_edw_Query_manufa'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/aka_bisql_Query_sele:
+    name: aka_bisql_Query_sele
+    description: 'Dataset for componentName: aka_bisql_Query_sele'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/aka_bisql_Query_sele_185:
+    name: aka_bisql_Query_sele_185
+    description: 'Dataset for componentName: aka_bisql_Query_sele_185'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/DSN_r2s_prod_edw_alt_297:
+    name: DSN_r2s_prod_edw_alt_297
+    description: 'Dataset for componentName: DSN_r2s_prod_edw_alt_297'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:49'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:49'
+  datasets/PartSeriesPlusOption:
+    name: PartSeriesPlusOption
+    description: 'Dataset for componentName: PartSeriesPlusOption'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/ProcessOrderTransact:
+    name: ProcessOrderTransact
+    description: 'Dataset for componentName: ProcessOrderTransact'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/MachineCapacity_yxdb:
+    name: MachineCapacity_yxdb
+    description: 'Dataset for componentName: MachineCapacity_yxdb'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/ManufacturingOrder_y:
+    name: ManufacturingOrder_y
+    description: 'Dataset for componentName: ManufacturingOrder_y'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/aka_bisql_Query_sele_154:
+    name: aka_bisql_Query_sele_154
+    description: 'Dataset for componentName: aka_bisql_Query_sele_154'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/aka_bisql_Query_sele_183:
+    name: aka_bisql_Query_sele_183
+    description: 'Dataset for componentName: aka_bisql_Query_sele_183'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/aka_miscsql_Query_se_168:
+    name: aka_miscsql_Query_se_168
+    description: 'Dataset for componentName: aka_miscsql_Query_se_168'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/aka_bisql_Query_sele_232:
+    name: aka_bisql_Query_sele_232
+    description: 'Dataset for componentName: aka_bisql_Query_sele_232'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
+  datasets/DSN_r2s_prod_edw_alt_301:
+    name: DSN_r2s_prod_edw_alt_301
+    description: 'Dataset for componentName: DSN_r2s_prod_edw_alt_301'
+    author: bobw@prophecy.io
+    createdAt: '2024-08-30 16:18:50'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Warehouse
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-08-30 16:18:50'
 templates: {}
 jobs: {}
 gemContainer:

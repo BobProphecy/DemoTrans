@@ -1,0 +1,628 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.0.31",
+        "pyPiVersion" : "1.9.9"
+      }
+    },
+    "id" : "test",
+    "uri" : "pipelines/Alteryx_customer_demo_raw",
+    "language" : "python",
+    "fabricId" : "9631",
+    "frontEndLanguage" : "python",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.demotranspiler.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ],
+      "initialCode" : "\n\ndef alteryxOutputColumns(all_columns, columns_to_drop):\n    conflicting_columns = [col.replace(\"in0_\", \"\").replace(\"in1_\", \"\") for col in all_columns]\n    conflicting_columns = set([x for x in conflicting_columns if conflicting_columns.count(x) > 1])\n\n    output_columns = []\n    for col_name in all_columns:\n        original_column_name = col_name.replace(\"in0_\", \"\").replace(\"in1_\", \"\")\n\n        if col_name in columns_to_drop:\n            continue\n        else:\n            if original_column_name in conflicting_columns and col_name.startswith(\"in1_\"):\n                output_columns.append(f\"`in1_{original_column_name}` AS `Right_{original_column_name}`\")\n            elif col_name.startswith(\"in1_\"):\n                output_columns.append(f\"`in1_{original_column_name}` AS `{original_column_name}`\")\n            elif col_name.startswith(\"in0_\"):\n                output_columns.append(f\"`in0_{original_column_name}` AS `{original_column_name}`\")\n            else:\n                output_columns.append(f\"`{original_column_name}` AS `{original_column_name}`\")\n\n    return output_columns\n\ndef textToColumns(exploded_df, input_column, num_cols, rootName, field_separator):\n    split_col_df = exploded_df.withColumn(\"splitCol\", call_spark_fcn(\"splitIntoMultipleColumnsUdf\", col(input_column), lit(field_separator), lit(num_cols)).alias(\"splitCol\"))\n\n    final_df = split_col_df\n    index = -1\n\n    output_schema_columns = [f\"{rootName}{i}\" for i in range(1, num_cols + 1)]\n\n    for column in output_schema_columns:\n        index += 1\n        final_df = final_df.withColumn(column, col(\"splitCol\")[index])\n\n    final_df = final_df.drop(\"splitCol\").drop(input_column)\n    return final_df\n\ndef transposeDataFrame(df, key_columns, data_columns):\n    unpivoted_cols = [col(column) for column in key_columns] + [lit(column).alias(\"Name\") for column in data_columns] + [col(column).alias(\"Value\") for column in data_columns]\n    return df.select(*unpivoted_cols)\n\n\n"
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "edge_51",
+    "source" : "4",
+    "sourcePort" : "4_Output",
+    "target" : "5",
+    "targetPort" : "5_Input"
+  }, {
+    "id" : "edge_52",
+    "source" : "1",
+    "sourcePort" : "1_Output",
+    "target" : "3_inner",
+    "targetPort" : "6DtbjNO2NkVwmTL0NsM1X"
+  }, {
+    "id" : "edge_53",
+    "source" : "2",
+    "sourcePort" : "2_Output",
+    "target" : "3_inner",
+    "targetPort" : "JBEGLUUCKmJu-LDq2n9uQ"
+  }, {
+    "id" : "edge_54",
+    "source" : "3_inner",
+    "sourcePort" : "3jAlnN2PWkyXokm1hXJxe",
+    "target" : "4",
+    "targetPort" : "4_Input"
+  } ],
+  "processes" : {
+    "4" : {
+      "id" : "4",
+      "component" : "Aggregate",
+      "metadata" : {
+        "label" : "SumAmounts",
+        "slug" : "SumAmounts",
+        "x" : 420,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "4_Input",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "4_Output",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "allIns" : false,
+        "doPivot" : false,
+        "aggregate" : [ {
+          "target" : "Sum_amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "sum(col(\"amount\"))"
+          },
+          "description" : ""
+        }, {
+          "target" : "Count",
+          "expression" : {
+            "format" : "python",
+            "expression" : "count(col(\"order_id\"))"
+          },
+          "description" : ""
+        }, {
+          "target" : "Last_account_open_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "last(col(\"account_open_date\"))"
+          },
+          "description" : ""
+        } ],
+        "allowSelection" : true,
+        "pivotColumn" : null,
+        "pivotValues" : [ ],
+        "activeTab" : "aggregate",
+        "columnsSelector" : [ ],
+        "groupBy" : [ {
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"customer_id\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "5" : {
+      "id" : "5",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "report_csv",
+        "slug" : "report_csv",
+        "x" : 620,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "5_Input",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Sum_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Count",
+              "type" : "long",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "Last_account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/report_csv"
+      }
+    },
+    "3_inner" : {
+      "id" : "3_inner",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "ByCustomerId_inner",
+        "slug" : "ByCustomerId_inner",
+        "x" : 220,
+        "y" : 120,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "6DtbjNO2NkVwmTL0NsM1X",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "first_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "email",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_open_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "country_code",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "last_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "account_flags",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "phone",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "JBEGLUUCKmJu-LDq2n9uQ",
+          "slug" : "in1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "order_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "customer_id",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_category",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "amount",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_status",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "order_date",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "3jAlnN2PWkyXokm1hXJxe",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "in1",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.customer_id\") == col(\"in1.customer_id\")"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "_row_id" : "1609982970",
+          "target" : "first_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.first_name\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1993934064",
+          "target" : "order_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.order_id\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1694787596",
+          "target" : "customer_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.customer_id\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "1317716622",
+          "target" : "amount",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in1.amount\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "632831634",
+          "target" : "account_open_date",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.account_open_date\")"
+          },
+          "description" : ""
+        }, {
+          "_row_id" : "324690930",
+          "target" : "last_name",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"in0.last_name\")"
+          },
+          "description" : ""
+        } ],
+        "hints" : [ {
+          "id" : "6DtbjNO2NkVwmTL0NsM1X",
+          "alias" : "in0",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "JBEGLUUCKmJu-LDq2n9uQ",
+          "alias" : "in1",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "activeTab" : "conditions",
+        "columnsSelector" : [ ],
+        "whereClause" : null,
+        "headAlias" : "in0"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "1" : {
+      "id" : "1",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "customers_csv",
+        "slug" : "customers_csv",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "1_Output",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/customers_csv"
+      }
+    },
+    "2" : {
+      "id" : "2",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "orders_csv",
+        "slug" : "orders_csv",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "2_Output",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/orders_csv"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.metainfo.udfs.udfs[0].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition noofdaysinyear",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.metainfo.udfs.udfs[1].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition setrptrecind",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}
