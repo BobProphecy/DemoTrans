@@ -7,12 +7,523 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.0.31",
-        "pyPiVersion" : "1.9.9"
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
       }
     },
     "id" : "graph",
     "uri" : "pipelines/INFA1_COMM_MDM_m_STG_PUB_PTY",
+    "sourceSuggestions" : [ {
+      "sourceLabel" : "hello_world_hw_customers",
+      "sourceDatasetId" : "datasets/hello_world_hw_customers",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "hello_world_hw_customers",
+            "expression" : "(((col(\"Customers.account_flags\") == col(\"hello_world_hw_customers.account_flags\")) & (col(\"Customers.country_code\") == col(\"hello_world_hw_customers.country_code\"))) & (col(\"Customers.customer_id\") == col(\"hello_world_hw_customers.customer_id\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/hello_world_hw_customers"
+        }
+      }, {
+        "processLabel" : "Orders",
+        "processId" : "Orders",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "hello_world_hw_customers",
+            "expression" : "(col(\"Orders.customer_id\") == col(\"hello_world_hw_customers.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "first_name",
+            "expression" : "col(\"hello_world_hw_customers.first_name\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"hello_world_hw_customers.last_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"hello_world_hw_customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"hello_world_hw_customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"hello_world_hw_customers.country_code\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"hello_world_hw_customers.account_open_date\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"hello_world_hw_customers.account_flags\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"Orders.amount\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"Orders.order_category\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"Orders.order_date\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Orders.customer_id\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"Orders.order_status\")"
+          }, {
+            "alias" : "order_id",
+            "expression" : "col(\"Orders.order_id\")"
+          } ],
+          "headAlias" : "datasets/hello_world_hw_customers"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "hello_world_hw_orders",
+      "sourceDatasetId" : "datasets/hello_world_hw_orders",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "hello_world_hw_orders",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"hello_world_hw_orders.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "col(\"hello_world_hw_orders.order_id\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"hello_world_hw_orders.order_status\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"hello_world_hw_orders.order_category\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"hello_world_hw_orders.order_date\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"hello_world_hw_orders.amount\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/hello_world_hw_orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customers_fixed",
+      "sourceDatasetId" : "datasets/customers_fixed",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
+          "conditions" : [ {
+            "alias" : "customers_fixed",
+            "expression" : "(((col(\"Customers.account_flags\") == col(\"customers_fixed.account_flags\")) & (col(\"Customers.country_code\") == col(\"customers_fixed.country_code\"))) & (col(\"Customers.customer_id\") == col(\"customers_fixed.customer_id\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/customers_fixed"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "Orders_1",
+      "sourceDatasetId" : "datasets/Orders",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "Orders_1",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"Orders_1.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "col(\"Orders_1.order_id\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"Orders_1.order_category\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"Orders_1.amount\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"Orders_1.order_status\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"Orders_1.order_date\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/Orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "customers_csv",
+      "sourceDatasetId" : "datasets/customers_csv",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "country_code", "account_flags", "account_open_date" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "account_open_date" ],
+          "conditions" : [ {
+            "alias" : "customers_csv",
+            "expression" : "(((col(\"Customers.account_flags\") == col(\"customers_csv.account_flags\")) & (col(\"Customers.account_open_date\") == col(\"customers_csv.account_open_date\"))) & (col(\"Customers.country_code\") == col(\"customers_csv.country_code\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/customers_csv"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "custorders_fixed",
+      "sourceDatasetId" : "datasets/custorders_fixed",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "custorders_fixed",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"custorders_fixed.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "orders",
+            "expression" : "col(\"custorders_fixed.orders\")"
+          }, {
+            "alias" : "amounts",
+            "expression" : "col(\"custorders_fixed.amounts\")"
+          }, {
+            "alias" : "account_length_days",
+            "expression" : "col(\"custorders_fixed.account_length_days\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/custorders_fixed"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "orders_fixed",
+      "sourceDatasetId" : "datasets/orders_fixed",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "orders_fixed",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"orders_fixed.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "col(\"orders_fixed.order_id\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"orders_fixed.order_status\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"orders_fixed.order_category\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"orders_fixed.order_date\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"orders_fixed.amount\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/orders_fixed"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "Customer_Orders_1",
+      "sourceDatasetId" : "datasets/Customer_Orders",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "Customer_Orders_1",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"Customer_Orders_1.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "orders",
+            "expression" : "col(\"Customer_Orders_1.orders\")"
+          }, {
+            "alias" : "amounts",
+            "expression" : "col(\"Customer_Orders_1.amounts\")"
+          }, {
+            "alias" : "account_length_days",
+            "expression" : "col(\"Customer_Orders_1.account_length_days\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/Customer_Orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "Output_File",
+      "sourceDatasetId" : "datasets/Output_File",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "Output_File",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"Output_File.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "full_name",
+            "expression" : "col(\"Output_File.full_name\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"Output_File.amount\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/Output_File"
+        }
+      } ]
+    } ],
     "language" : "python",
     "fabricId" : "9631",
     "frontEndLanguage" : "python",
@@ -330,7 +841,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -551,7 +1062,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -902,7 +1413,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1031,7 +1542,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1178,7 +1689,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1451,7 +1962,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1712,7 +2223,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1823,7 +2334,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.26&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1924,7 +2435,7 @@
     "tags" : [ ],
     "relatedInformation" : [ ]
   }, {
-    "property" : "$.workflow.processes.Customer_Orders",
+    "property" : "$.workflow.processes.Customer_Orders.ports.inputs[0]",
     "range" : {
       "start" : {
         "line" : 0,
