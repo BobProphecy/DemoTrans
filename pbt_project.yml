@@ -155,6 +155,36 @@ pipelines:
       - datasets/MachineCapacity_yxdb
     subgraphs: []
     dependencies: {}
+  pipelines/INFA_fbi_etl_stg_m_Load_MAQ_FDW_STG_PR_raw:
+    name: INFA_fbi_etl_stg_m_Load_MAQ_FDW_STG_PR_raw
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-03 15:08:42'
+    datasets:
+      inputs:
+      - datasets/Shortcut_to_stage_PR
+      outputs:
+      - datasets/T_FDW_STG_MAQ_PR
+    subgraphs: []
+    dependencies: {}
+  pipelines/INFA_fbi_etl_stg_m_Load_MAQ_STG_DIA_raw:
+    name: INFA_fbi_etl_stg_m_Load_MAQ_STG_DIA_raw
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-03 15:08:43'
+    datasets:
+      inputs:
+      - datasets/Shortcut_to_stage_DIA
+      outputs:
+      - datasets/Shortcut_to_T_FBI_STG_MAQ_DIA
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/Output_File:
     name: Output_File
@@ -793,6 +823,58 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-08-30 16:18:50'
+  datasets/T_FDW_STG_MAQ_PR:
+    name: T_FDW_STG_MAQ_PR
+    description: 'Dataset for componentName: T_FDW_STG_MAQ_PR'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-03 15:08:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-03 15:08:42'
+  datasets/Shortcut_to_stage_PR:
+    name: Shortcut_to_stage_PR
+    description: 'Dataset for componentName: Shortcut_to_stage_PR'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-03 15:08:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-03 15:08:42'
+  datasets/Shortcut_to_stage_DIA:
+    name: Shortcut_to_stage_DIA
+    description: 'Dataset for componentName: Shortcut_to_stage_DIA'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-03 15:08:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-03 15:08:42'
+  datasets/Shortcut_to_T_FBI_STG_MAQ_DIA:
+    name: Shortcut_to_T_FBI_STG_MAQ_DIA
+    description: 'Dataset for componentName: Shortcut_to_T_FBI_STG_MAQ_DIA'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-03 15:08:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-03 15:08:42'
 templates: {}
 jobs: {}
 gemContainer:

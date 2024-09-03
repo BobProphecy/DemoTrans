@@ -1,0 +1,2335 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "graph",
+    "uri" : "pipelines/INFA_fbi_etl_stg_m_Load_MAQ_STG_DIA_raw",
+    "language" : "python",
+    "fabricId" : "9631",
+    "frontEndLanguage" : "python",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.demotranspiler.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "edge_30",
+    "source" : "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP",
+    "sourcePort" : "73eRO1gmZNZjzpnWGT1k3",
+    "target" : "Shortcut_to_T_FBI_STG_MAQ_DIA",
+    "targetPort" : "daOUpdM-XRUZAn1sDw3g2"
+  }, {
+    "id" : "edge_31",
+    "source" : "exp_Load_STG_MAQ_DIA",
+    "sourcePort" : "zh4XQYWhIDEoczhheBp2e",
+    "target" : "exp_Load_STG_MAQ_DIA_EXPR_6",
+    "targetPort" : "fPIxW0w9qLo0qWoHBvoNQ"
+  }, {
+    "id" : "edge_32",
+    "source" : "exp_Load_STG_MAQ_DIA_EXPR_6",
+    "sourcePort" : "YeRnmKlICVTJj0RZecU7T",
+    "target" : "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP",
+    "targetPort" : "ffFQs6_r1a4_Asz_k8l2P"
+  }, {
+    "id" : "edge_33",
+    "source" : "Shortcut_to_stage_DIA",
+    "sourcePort" : "IENMBVEsOwZf_OxJLs8FV",
+    "target" : "SQ_Shortcut_to_stage_DIA",
+    "targetPort" : "3yT6IYMyMGfQUWEUeRDiL"
+  }, {
+    "id" : "edge_34",
+    "source" : "SQ_Shortcut_to_stage_DIA",
+    "sourcePort" : "GY2ZUToqvIbE5dCieJPsX",
+    "target" : "SQ_Shortcut_to_stage_DIA_EXPR_7",
+    "targetPort" : "S3_Dkc94k6giFft32AJ5W"
+  }, {
+    "id" : "edge_35",
+    "source" : "SQ_Shortcut_to_stage_DIA_EXPR_7",
+    "sourcePort" : "-7EU53IH_AJQZ5zmFAvhK",
+    "target" : "exp_Load_STG_MAQ_DIA_VARS",
+    "targetPort" : "Yr6I6XUcdY77Bx3avjDxj"
+  }, {
+    "id" : "edge_36",
+    "source" : "exp_Load_STG_MAQ_DIA_VARS",
+    "sourcePort" : "5bGBpOumqV15SPsvMA59l",
+    "target" : "exp_Load_STG_MAQ_DIA_add_missing_column",
+    "targetPort" : "Gk6dqS-3il1an-9kRrVuW"
+  }, {
+    "id" : "edge_37",
+    "source" : "exp_Load_STG_MAQ_DIA_add_missing_column",
+    "sourcePort" : "fHVfV1Og8_Wc9j5SDZsSB",
+    "target" : "exp_Load_STG_MAQ_DIA",
+    "targetPort" : "PGeXOGWNQuUT3GSYlWmgW"
+  } ],
+  "processes" : {
+    "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP" : {
+      "id" : "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP",
+        "slug" : "Shortcut_to_T_FBI_STG_MAQ_DIA_EXP",
+        "x" : 1420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ffFQs6_r1a4_Asz_k8l2P",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_DT",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "73eRO1gmZNZjzpnWGT1k3",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRVC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SRVC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CNTR_PRTY_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CNTR_PRTY_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "AFLT_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"AFLT_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_DT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"RCRD_CRT_DT\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PARTITION_KEY\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_DIA_EXPR_6" : {
+      "id" : "exp_Load_STG_MAQ_DIA_EXPR_6",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_DIA_EXPR_6",
+        "slug" : "exp_Load_STG_MAQ_DIA_EXPR_6",
+        "x" : 1220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "fPIxW0w9qLo0qWoHBvoNQ",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "o_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_DT",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "YeRnmKlICVTJj0RZecU7T",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"o_SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PARTITION_KEY\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRVC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SRVC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CNTR_PRTY_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CNTR_PRTY_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "AFLT_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"AFLT_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_DT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"RCRD_CRT_DT\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_Shortcut_to_stage_DIA_EXPR_7" : {
+      "id" : "SQ_Shortcut_to_stage_DIA_EXPR_7",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_Shortcut_to_stage_DIA_EXPR_7",
+        "slug" : "SQ_Shortcut_to_stage_DIA_EXPR_7",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "S3_Dkc94k6giFft32AJ5W",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CUBE_NM",
+              "type" : "void",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "-7EU53IH_AJQZ5zmFAvhK",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "i_YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_SRVC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SRVC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_CNTR_PRTY_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CNTR_PRTY_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_AFLT_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"AFLT_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "Shortcut_to_stage_DIA" : {
+      "id" : "Shortcut_to_stage_DIA",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Shortcut_to_stage_DIA",
+        "slug" : "Shortcut_to_stage_DIA",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "IENMBVEsOwZf_OxJLs8FV",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Shortcut_to_stage_DIA"
+      }
+    },
+    "Shortcut_to_T_FBI_STG_MAQ_DIA" : {
+      "id" : "Shortcut_to_T_FBI_STG_MAQ_DIA",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "Shortcut_to_T_FBI_STG_MAQ_DIA",
+        "slug" : "Shortcut_to_T_FBI_STG_MAQ_DIA",
+        "x" : 1620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "daOUpdM-XRUZAn1sDw3g2",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_DT",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Shortcut_to_T_FBI_STG_MAQ_DIA"
+      }
+    },
+    "exp_Load_STG_MAQ_DIA_VARS" : {
+      "id" : "exp_Load_STG_MAQ_DIA_VARS",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_DIA_VARS",
+        "slug" : "exp_Load_STG_MAQ_DIA_VARS",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Yr6I6XUcdY77Bx3avjDxj",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "i_YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "5bGBpOumqV15SPsvMA59l",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "SCN_NM",
+            "expression" : {
+              "format" : "python",
+              "expression" : "upper(ltrim(rtrim(col(\"i_SCN_NM\"))))"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "MTH_KEY",
+            "expression" : {
+              "format" : "python",
+              "expression" : "concat(col(\"i_YR_NO\"), when(col(\"i_MTH_ABBR_NM\") == lit(\"Jan\"), lit(\"01\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Feb\"), lit(\"02\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Mar\"), lit(\"03\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Apr\"), lit(\"04\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"May\"), lit(\"05\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Jun\"), lit(\"06\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Jul\"), lit(\"07\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Aug\"), lit(\"08\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Sep\"), lit(\"09\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Oct\"), lit(\"10\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Nov\"), lit(\"11\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Dec\"), lit(\"12\")).otherwise(lit(\"Error\")))"
+            }
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_DIA_add_missing_column" : {
+      "id" : "exp_Load_STG_MAQ_DIA_add_missing_column",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_DIA_add_missing_column",
+        "slug" : "exp_Load_STG_MAQ_DIA_add_missing_column",
+        "x" : 820,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Gk6dqS-3il1an-9kRrVuW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "i_YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "fHVfV1Og8_Wc9j5SDZsSB",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "i_CUBE_NM",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(None).cast(StringType())"
+            }
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_Shortcut_to_stage_DIA" : {
+      "id" : "SQ_Shortcut_to_stage_DIA",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_Shortcut_to_stage_DIA",
+        "slug" : "SQ_Shortcut_to_stage_DIA",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "3yT6IYMyMGfQUWEUeRDiL",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CUBE_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "GY2ZUToqvIbE5dCieJPsX",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRVC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SRVC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CNTR_PRTY_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CNTR_PRTY_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "AFLT_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"AFLT_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CUBE_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "lit(None)"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_DIA" : {
+      "id" : "exp_Load_STG_MAQ_DIA",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_DIA",
+        "slug" : "exp_Load_STG_MAQ_DIA",
+        "x" : 1020,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PGeXOGWNQuUT3GSYlWmgW",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "i_YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SRVC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CNTR_PRTY_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_AFLT_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CUBE_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "zh4XQYWhIDEoczhheBp2e",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_YR_NO\"))).cast(StringType())"
+          },
+          "description" : ""
+        }, {
+          "target" : "o_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRVC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_SRVC_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_MUNT_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "CNTR_PRTY_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_CNTR_PRTY_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_LE_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "AFLT_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_AFLT_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "upper(ltrim(rtrim(col(\"i_ACCT_QLFR_NM\"))))"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_CCY_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "upper(ltrim(rtrim(col(\"i_DSPL_CCY_NM\"))))"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_BK_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_MTH_ABBR_NM\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_GLAC_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_BAL_TYPE_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_XPNS_AM\"))).cast(StringType())"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_DT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "current_timestamp()"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "when(col(\"SCN_NM\") == lit(\"ACTUAL\"), concat(lit(\"DIA_Actual_\"), col(\"MTH_KEY\"))).when(col(\"SCN_NM\") == lit(\"PLAN\"), concat(lit(\"DIA_Plan_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_NXTYR\"), concat(lit(\"DIA_Forecast_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_PR1\"), concat(lit(\"DIA_Forecast_\"), col(\"i_YR_NO\"))).otherwise(lit(None))"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.metainfo.udfs.udfs[0].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition noofdaysinyear",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.metainfo.udfs.udfs[1].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition setrptrecind",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}

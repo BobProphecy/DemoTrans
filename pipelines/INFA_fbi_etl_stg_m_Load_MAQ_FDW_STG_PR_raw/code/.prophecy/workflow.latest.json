@@ -1,0 +1,2054 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "functions" : { },
+    "codeGenConfiguration" : {
+      "editableConfig" : false,
+      "plibVersion" : {
+        "mavenVersion" : "8.1.4",
+        "pyPiVersion" : "1.9.14"
+      }
+    },
+    "id" : "graph",
+    "uri" : "pipelines/INFA_fbi_etl_stg_m_Load_MAQ_FDW_STG_PR_raw",
+    "language" : "python",
+    "fabricId" : "9631",
+    "frontEndLanguage" : "python",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.demotranspiler.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "PROC_RUN_ID",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "FEED_TYPE",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        }, {
+          "name" : "MAQ_FILE_NAME",
+          "kind" : {
+            "type" : "string",
+            "value" : ""
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : false,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ {
+      "projectUID" : "12654",
+      "projectName" : "ProphecySparkBasicsPython",
+      "externalDependencies" : [ ]
+    }, {
+      "projectUID" : "12655",
+      "projectName" : "ProphecyWarehousePython",
+      "externalDependencies" : [ ]
+    } ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "edge_38",
+    "source" : "T_FDW_STG_MAQ_PR_EXP",
+    "sourcePort" : "U6r-qB4iFSnXaAXB7bRgj",
+    "target" : "T_FDW_STG_MAQ_PR",
+    "targetPort" : "CUyB94N9yUj_TiKt984J6"
+  }, {
+    "id" : "edge_39",
+    "source" : "exp_Load_STG_MAQ_PR",
+    "sourcePort" : "dA8_NSznkS9fOV9bmt59v",
+    "target" : "exp_Load_STG_MAQ_PR_EXPR_6",
+    "targetPort" : "nQQB114Qrh5tAMdfGBtUe"
+  }, {
+    "id" : "edge_40",
+    "source" : "exp_Load_STG_MAQ_PR_EXPR_6",
+    "sourcePort" : "twdOotC58hkCqgLdNfPNO",
+    "target" : "T_FDW_STG_MAQ_PR_EXP",
+    "targetPort" : "xg-7aRhSL1yFEOBRAVH4A"
+  }, {
+    "id" : "edge_41",
+    "source" : "SQ_Shortcut_to_stage_PR",
+    "sourcePort" : "hf2mX55Q9vqlYy73mmpL7",
+    "target" : "SQ_Shortcut_to_stage_PR_EXPR_7",
+    "targetPort" : "N4DC_RVtcIOtKw3YLmuxf"
+  }, {
+    "id" : "edge_42",
+    "source" : "Shortcut_to_stage_PR",
+    "sourcePort" : "iqc_R8hdtsxoAxr5ts3gz",
+    "target" : "SQ_Shortcut_to_stage_PR",
+    "targetPort" : "6StsTcvuc1VY9EW2q0num"
+  }, {
+    "id" : "edge_43",
+    "source" : "SQ_Shortcut_to_stage_PR_EXPR_7",
+    "sourcePort" : "X5ltX0GjmOuQYE2QcpNHl",
+    "target" : "exp_Load_STG_MAQ_PR_VARS",
+    "targetPort" : "xV8SJrrzKbfmiH_uie_6i"
+  }, {
+    "id" : "edge_44",
+    "source" : "exp_Load_STG_MAQ_PR_VARS",
+    "sourcePort" : "cvldsVGy9XMNu0NNmmPiv",
+    "target" : "exp_Load_STG_MAQ_PR",
+    "targetPort" : "Vh_keJuApIXu0kNiBI2LX"
+  } ],
+  "processes" : {
+    "T_FDW_STG_MAQ_PR" : {
+      "id" : "T_FDW_STG_MAQ_PR",
+      "component" : "Target",
+      "metadata" : {
+        "label" : "T_FDW_STG_MAQ_PR",
+        "slug" : "T_FDW_STG_MAQ_PR",
+        "x" : 1420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "CUyB94N9yUj_TiKt984J6",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MAQ_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_DTL_TX",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_TS",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRC_FR_NM",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PROC_RUN_id",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/T_FDW_STG_MAQ_PR"
+      }
+    },
+    "Shortcut_to_stage_PR" : {
+      "id" : "Shortcut_to_stage_PR",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "Shortcut_to_stage_PR",
+        "slug" : "Shortcut_to_stage_PR",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true,
+        "comment" : "Loads financial data from a CSV file, ensuring proper structure and formatting for further analysis.",
+        "autoUpdateComment" : true
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "iqc_R8hdtsxoAxr5ts3gz",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/Shortcut_to_stage_PR"
+      }
+    },
+    "T_FDW_STG_MAQ_PR_EXP" : {
+      "id" : "T_FDW_STG_MAQ_PR_EXP",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "T_FDW_STG_MAQ_PR_EXP",
+        "slug" : "T_FDW_STG_MAQ_PR_EXP",
+        "x" : 1220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xg-7aRhSL1yFEOBRAVH4A",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_TS",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PROC_RUN_id",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRC_FR_NM",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_DTL_TX",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MAQ_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "U6r-qB4iFSnXaAXB7bRgj",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MAQ_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MAQ_SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_DTL_TX",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_DTL_TX\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_AM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_TS",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"RCRD_CRT_TS\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRC_FR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SRC_FR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PARTITION_KEY\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PROC_RUN_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PROC_RUN_id\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_PR" : {
+      "id" : "exp_Load_STG_MAQ_PR",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_PR",
+        "slug" : "exp_Load_STG_MAQ_PR",
+        "x" : 820,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "Vh_keJuApIXu0kNiBI2LX",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "i_MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Abbreviation of the month related to the data entry",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The general ledger account number associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the type of balance",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Amount of expenses recorded in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The year associated with the financial data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the scenario being analyzed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number representing the monetary unit",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the legal entity involved in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account qualifier used for classification",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the currency used in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the currency displayed in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the bank associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "v_FEED_TYPE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "v_SCN_DTL_TXT",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "v_PROC_RUN_ID",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "dA8_NSznkS9fOV9bmt59v",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_YR_NO\"))).cast(StringType())"
+          },
+          "description" : ""
+        }, {
+          "target" : "o_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_DTL_TXT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"v_SCN_DTL_TXT\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_MUNT_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_LE_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "upper(ltrim(rtrim(col(\"i_ACCT_QLFR_NM\"))))"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_CCY_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "upper(ltrim(rtrim(col(\"i_DSPL_CCY_NM\"))))"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_BK_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_MTH_ABBR_NM\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_GLAC_NO\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_BAL_TYPE_CD\")))"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "ltrim(rtrim(col(\"i_XPNS_AM\"))).cast(StringType())"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_DT",
+          "expression" : {
+            "format" : "python",
+            "expression" : "current_timestamp()"
+          },
+          "description" : ""
+        }, {
+          "target" : "FEED_TYPE",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"v_FEED_TYPE\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "when(col(\"SCN_NM\") == lit(\"ACTUAL\"), concat(lit(\"PR_Actual_\"), col(\"MTH_KEY\"))).when(col(\"SCN_NM\") == lit(\"PLAN\"), concat(lit(\"PR_Plan_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_PR1\"), concat(lit(\"PR_Forecast_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_CURYR\"), concat(lit(\"PR_Forecast_CURYR_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_NXTYR\"), concat(lit(\"PR_Forecast_NXTYR_\"), col(\"i_YR_NO\"))).when(col(\"SCN_NM\") == lit(\"FCST_MPF\"), concat(lit(\"PR_Forecast_MPF_\"), col(\"i_YR_NO\"))).otherwise(lit(None))"
+          },
+          "description" : ""
+        }, {
+          "target" : "PROC_RUN_ID",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"v_PROC_RUN_ID\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_PR_VARS" : {
+      "id" : "exp_Load_STG_MAQ_PR_VARS",
+      "component" : "SchemaTransform",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_PR_VARS",
+        "slug" : "exp_Load_STG_MAQ_PR_VARS",
+        "x" : 620,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "xV8SJrrzKbfmiH_uie_6i",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "i_MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Abbreviation of the month related to the data entry",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The general ledger account number associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the type of balance",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Amount of expenses recorded in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The year associated with the financial data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the scenario being analyzed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number representing the monetary unit",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the legal entity involved in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account qualifier used for classification",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the currency used in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the currency displayed in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "i_BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the bank associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "cvldsVGy9XMNu0NNmmPiv",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "transformations" : [ {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "SCN_NM",
+            "expression" : {
+              "format" : "python",
+              "expression" : "upper(ltrim(rtrim(col(\"i_SCN_NM\"))))"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "v_FEED_TYPE",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(Config.FEED_TYPE)"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "v_SCN_DTL_TXT",
+            "expression" : {
+              "format" : "python",
+              "expression" : "call_spark_fcn(\"string_substring\", lit(Config.MAQ_FILE_NAME), lit(21), (lit(0) - lit(28)))"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "MTH_KEY",
+            "expression" : {
+              "format" : "python",
+              "expression" : "concat(col(\"i_YR_NO\"), when(col(\"i_MTH_ABBR_NM\") == lit(\"Jan\"), lit(\"01\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Feb\"), lit(\"02\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Mar\"), lit(\"03\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Apr\"), lit(\"04\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"May\"), lit(\"05\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Jun\"), lit(\"06\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Jul\"), lit(\"07\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Aug\"), lit(\"08\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Sep\"), lit(\"09\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Oct\"), lit(\"10\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Nov\"), lit(\"11\")).when(col(\"i_MTH_ABBR_NM\") == lit(\"Dec\"), lit(\"12\")).otherwise(lit(\"Error\")))"
+            }
+          }
+        }, {
+          "AddRule" : {
+            "expression" : {
+              "format" : "scala",
+              "expression" : ""
+            },
+            "paramErrors" : [ ]
+          },
+          "DropColumn" : {
+            "sourceColumn" : ""
+          },
+          "kind" : "AddReplaceColumn",
+          "RenameColumn" : {
+            "sourceColumn" : "",
+            "targetColumn" : ""
+          },
+          "AddReplaceColumn" : {
+            "sourceColumn" : "v_PROC_RUN_ID",
+            "expression" : {
+              "format" : "python",
+              "expression" : "lit(Config.PROC_RUN_ID)"
+            }
+          }
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_Shortcut_to_stage_PR_EXPR_7" : {
+      "id" : "SQ_Shortcut_to_stage_PR_EXPR_7",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_Shortcut_to_stage_PR_EXPR_7",
+        "slug" : "SQ_Shortcut_to_stage_PR_EXPR_7",
+        "x" : 420,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "N4DC_RVtcIOtKw3YLmuxf",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The year associated with the financial data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the scenario being analyzed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number representing the monetary unit",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the legal entity involved in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account qualifier used for classification",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the currency used in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the currency displayed in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the bank associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Abbreviation of the month related to the data entry",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The general ledger account number associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the type of balance",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Amount of expenses recorded in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "X5ltX0GjmOuQYE2QcpNHl",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "i_MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "i_BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "exp_Load_STG_MAQ_PR_EXPR_6" : {
+      "id" : "exp_Load_STG_MAQ_PR_EXPR_6",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "exp_Load_STG_MAQ_PR_EXPR_6",
+        "slug" : "exp_Load_STG_MAQ_PR_EXPR_6",
+        "x" : 1020,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "nQQB114Qrh5tAMdfGBtUe",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "o_SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_DTL_TXT",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "RCRD_CRT_DT",
+              "type" : "timestamp",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FEED_TYPE",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PARTITION_KEY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PROC_RUN_ID",
+              "type" : "string",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "twdOotC58hkCqgLdNfPNO",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "RCRD_CRT_TS",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"RCRD_CRT_DT\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PARTITION_KEY",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PARTITION_KEY\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "PROC_RUN_id",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"PROC_RUN_ID\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SRC_FR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"FEED_TYPE\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_DTL_TX",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_DTL_TXT\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MAQ_SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"o_SCN_NM\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "SQ_Shortcut_to_stage_PR" : {
+      "id" : "SQ_Shortcut_to_stage_PR",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "SQ_Shortcut_to_stage_PR",
+        "slug" : "SQ_Shortcut_to_stage_PR",
+        "x" : 220,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : true
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "6StsTcvuc1VY9EW2q0num",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "BK_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the bank associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SCN_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the scenario being analyzed",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ACCT_QLFR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the account qualifier used for classification",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "YR_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The year associated with the financial data",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "CCY_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the currency used in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "LE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the legal entity involved in the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "GLAC_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The general ledger account number associated with the transaction",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "XPNS_AM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Amount of expenses recorded in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MUNT_NO",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Number representing the monetary unit",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "BAL_TYPE_CD",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Code representing the type of balance",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DSPL_CCY_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the currency displayed in the dataset",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "MTH_ABBR_NM",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Abbreviation of the month related to the data entry",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "hf2mX55Q9vqlYy73mmpL7",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "expressions" : [ {
+          "target" : "YR_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"YR_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "SCN_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"SCN_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MUNT_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MUNT_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "LE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"LE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "ACCT_QLFR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"ACCT_QLFR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "CCY_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"CCY_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "DSPL_CCY_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"DSPL_CCY_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BK_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BK_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "MTH_ABBR_NM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"MTH_ABBR_NM\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "GLAC_NO",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"GLAC_NO\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "BAL_TYPE_CD",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"BAL_TYPE_CD\")"
+          },
+          "description" : ""
+        }, {
+          "target" : "XPNS_AM",
+          "expression" : {
+            "format" : "python",
+            "expression" : "col(\"XPNS_AM\")"
+          },
+          "description" : ""
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "diagnostics" : [ {
+    "property" : "$.workflow.metainfo.udfs.udfs[0].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition noofdaysinyear",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  }, {
+    "property" : "$.workflow.metainfo.udfs.udfs[1].code",
+    "range" : {
+      "start" : {
+        "line" : 0,
+        "character" : 0
+      },
+      "end" : {
+        "line" : 0,
+        "character" : 0
+      }
+    },
+    "severity" : 1,
+    "message" : "udf annotation is missing for definition setrptrecind",
+    "tags" : [ ],
+    "relatedInformation" : [ ]
+  } ]
+}

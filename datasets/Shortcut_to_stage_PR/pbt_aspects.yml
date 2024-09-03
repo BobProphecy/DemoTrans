@@ -1,0 +1,88 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: BK_CD
+    type: string
+    nullable: true
+    metadata:
+      description: Code representing the bank associated with the transaction
+      mappings: []
+      tags: []
+  - name: SCN_NM
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the scenario being analyzed
+      mappings: []
+      tags: []
+  - name: ACCT_QLFR_NM
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the account qualifier used for classification
+      mappings: []
+      tags: []
+  - name: YR_NO
+    type: string
+    nullable: true
+    metadata:
+      description: The year associated with the financial data
+      mappings: []
+      tags: []
+  - name: CCY_CD
+    type: string
+    nullable: true
+    metadata:
+      description: Code representing the currency used in the transaction
+      mappings: []
+      tags: []
+  - name: LE_CD
+    type: string
+    nullable: true
+    metadata:
+      description: Code representing the legal entity involved in the transaction
+      mappings: []
+      tags: []
+  - name: GLAC_NO
+    type: string
+    nullable: true
+    metadata:
+      description: The general ledger account number associated with the transaction
+      mappings: []
+      tags: []
+  - name: XPNS_AM
+    type: string
+    nullable: true
+    metadata:
+      description: Amount of expenses recorded in the dataset
+      mappings: []
+      tags: []
+  - name: MUNT_NO
+    type: string
+    nullable: true
+    metadata:
+      description: Number representing the monetary unit
+      mappings: []
+      tags: []
+  - name: BAL_TYPE_CD
+    type: string
+    nullable: true
+    metadata:
+      description: Code representing the type of balance
+      mappings: []
+      tags: []
+  - name: DSPL_CCY_NM
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the currency displayed in the dataset
+      mappings: []
+      tags: []
+  - name: MTH_ABBR_NM
+    type: string
+    nullable: true
+    metadata:
+      description: Abbreviation of the month related to the data entry
+      mappings: []
+      tags: []
