@@ -100,6 +100,97 @@
         }
       } ]
     }, {
+      "sourceLabel" : "report_csv_1",
+      "sourceDatasetId" : "datasets/report_csv",
+      "canJoinWith" : [ {
+        "processLabel" : "customers_csv",
+        "processId" : "1",
+        "joinColumns" : [ "customer_id", "last_name" ],
+        "isRecommended" : true,
+        "properties" : {
+          "columnsSelector" : [ "customer_id", "last_name" ],
+          "conditions" : [ {
+            "alias" : "report_csv_1",
+            "expression" : "((col(\"customers_csv.customer_id\") == col(\"report_csv_1.customer_id\")) & (col(\"customers_csv.last_name\") == col(\"report_csv_1.Last_account_open_date\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "Sum_amount",
+            "expression" : "col(\"report_csv_1.Sum_amount\")"
+          }, {
+            "alias" : "Count",
+            "expression" : "col(\"report_csv_1.Count\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"customers_csv.phone\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"customers_csv.first_name\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"customers_csv.account_open_date\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"customers_csv.customer_id\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"customers_csv.email\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"customers_csv.account_flags\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"customers_csv.country_code\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"customers_csv.last_name\")"
+          } ],
+          "headAlias" : "datasets/report_csv"
+        }
+      }, {
+        "processLabel" : "orders_csv",
+        "processId" : "2",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "report_csv_1",
+            "expression" : "(col(\"orders_csv.customer_id\") == col(\"report_csv_1.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "Sum_amount",
+            "expression" : "col(\"report_csv_1.Sum_amount\")"
+          }, {
+            "alias" : "Count",
+            "expression" : "col(\"report_csv_1.Count\")"
+          }, {
+            "alias" : "Last_account_open_date",
+            "expression" : "col(\"report_csv_1.Last_account_open_date\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"orders_csv.order_status\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"orders_csv.order_date\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"orders_csv.amount\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"orders_csv.customer_id\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"orders_csv.order_category\")"
+          }, {
+            "alias" : "order_id",
+            "expression" : "col(\"orders_csv.order_id\")"
+          } ],
+          "headAlias" : "datasets/report_csv"
+        }
+      } ]
+    }, {
       "sourceLabel" : "customers_fixed_1",
       "sourceDatasetId" : "datasets/customers_fixed",
       "canJoinWith" : [ {
@@ -140,43 +231,6 @@
             "expression" : "col(\"customers_csv.last_name\")"
           } ],
           "headAlias" : "datasets/customers_fixed"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "Orders",
-      "sourceDatasetId" : "datasets/Orders",
-      "canJoinWith" : [ {
-        "processLabel" : "orders_csv",
-        "processId" : "2",
-        "joinColumns" : [ "amount", "order_category", "order_date" ],
-        "isRecommended" : true,
-        "properties" : {
-          "columnsSelector" : [ "amount", "order_category", "order_date" ],
-          "conditions" : [ {
-            "alias" : "Orders",
-            "expression" : "(((col(\"orders_csv.amount\") == col(\"Orders.amount\")) & (col(\"orders_csv.order_category\") == col(\"Orders.order_category\"))) & (col(\"orders_csv.order_date\") == col(\"Orders.order_date\")))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "order_status",
-            "expression" : "col(\"orders_csv.order_status\")"
-          }, {
-            "alias" : "order_date",
-            "expression" : "col(\"orders_csv.order_date\")"
-          }, {
-            "alias" : "amount",
-            "expression" : "col(\"orders_csv.amount\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"orders_csv.customer_id\")"
-          }, {
-            "alias" : "order_category",
-            "expression" : "col(\"orders_csv.order_category\")"
-          }, {
-            "alias" : "order_id",
-            "expression" : "col(\"orders_csv.order_id\")"
-          } ],
-          "headAlias" : "datasets/Orders"
         }
       } ]
     }, {
@@ -312,318 +366,21 @@
         }
       } ]
     }, {
-      "sourceLabel" : "PartSeriesPlusOption",
-      "sourceDatasetId" : "datasets/PartSeriesPlusOption",
+      "sourceLabel" : "Orders",
+      "sourceDatasetId" : "datasets/Orders",
       "canJoinWith" : [ {
         "processLabel" : "orders_csv",
         "processId" : "2",
-        "joinColumns" : [ "amount" ],
+        "joinColumns" : [ "amount", "order_category", "order_date" ],
         "isRecommended" : false,
         "properties" : {
-          "columnsSelector" : [ "amount" ],
+          "columnsSelector" : [ "amount", "order_category", "order_date" ],
           "conditions" : [ {
-            "alias" : "PartSeriesPlusOption",
-            "expression" : "(col(\"orders_csv.amount\") == col(\"PartSeriesPlusOption.Mount\"))",
+            "alias" : "Orders",
+            "expression" : "(((col(\"orders_csv.amount\") == col(\"Orders.amount\")) & (col(\"orders_csv.order_category\") == col(\"Orders.order_category\"))) & (col(\"orders_csv.order_date\") == col(\"Orders.order_date\")))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
-            "alias" : "Latching.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Latching.CalloutValue\")"
-          }, {
-            "alias" : "ReverseConnector.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseConnector.CalloutValue\")"
-          }, {
-            "alias" : "SpaceOption.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.SpaceOption.CalloutValue\")"
-          }, {
-            "alias" : "SurfaceMount.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.SurfaceMount.CalloutValue\")"
-          }, {
-            "alias" : "Entry",
-            "expression" : "col(\"PartSeriesPlusOption.Entry\")"
-          }, {
-            "alias" : "Notch.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Notch.CalloutValue\")"
-          }, {
-            "alias" : "Plating",
-            "expression" : "col(\"PartSeriesPlusOption.Plating\")"
-          }, {
-            "alias" : "MiddleReverse.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.MiddleReverse.CalloutValue\")"
-          }, {
-            "alias" : "Polarized.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Polarized.CalloutValue\")"
-          }, {
-            "alias" : "Length.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Length.CalloutValue\")"
-          }, {
-            "alias" : "ReceivingChannels.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.ReceivingChannels.CalloutValue\")"
-          }, {
-            "alias" : "OpticsType.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.OpticsType.CalloutValue\")"
-          }, {
-            "alias" : "ReceivingChannels",
-            "expression" : "col(\"PartSeriesPlusOption.ReceivingChannels\")"
-          }, {
-            "alias" : "Polarized",
-            "expression" : "col(\"PartSeriesPlusOption.Polarized\")"
-          }, {
-            "alias" : "Entry.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Entry.CalloutValue\")"
-          }, {
-            "alias" : "ScrewRetention.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.ScrewRetention.CalloutValue\")"
-          }, {
-            "alias" : "DifferentialPair.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.DifferentialPair.CalloutValue\")"
-          }, {
-            "alias" : "StrainRelief",
-            "expression" : "col(\"PartSeriesPlusOption.StrainRelief\")"
-          }, {
-            "alias" : "Latching",
-            "expression" : "col(\"PartSeriesPlusOption.Latching\")"
-          }, {
-            "alias" : "Length",
-            "expression" : "col(\"PartSeriesPlusOption.Length\")"
-          }, {
-            "alias" : "StrainRelief.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.StrainRelief.CalloutValue\")"
-          }, {
-            "alias" : "Mount.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Mount.CalloutValue\")"
-          }, {
-            "alias" : "Retention",
-            "expression" : "col(\"PartSeriesPlusOption.Retention\")"
-          }, {
-            "alias" : "CableRetention",
-            "expression" : "col(\"PartSeriesPlusOption.CableRetention\")"
-          }, {
-            "alias" : "OpticEnd.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.OpticEnd.CalloutValue\")"
-          }, {
-            "alias" : "Ends.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Ends.CalloutValue\")"
-          }, {
-            "alias" : "ReverseConnector",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseConnector\")"
-          }, {
-            "alias" : "ScrewRetention",
-            "expression" : "col(\"PartSeriesPlusOption.ScrewRetention\")"
-          }, {
-            "alias" : "Plating.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Plating.CalloutValue\")"
-          }, {
-            "alias" : "TailOption",
-            "expression" : "col(\"PartSeriesPlusOption.TailOption\")"
-          }, {
-            "alias" : "WireGauge",
-            "expression" : "col(\"PartSeriesPlusOption.WireGauge\")"
-          }, {
-            "alias" : "Rows",
-            "expression" : "col(\"PartSeriesPlusOption.Rows\")"
-          }, {
-            "alias" : "Speed",
-            "expression" : "col(\"PartSeriesPlusOption.Speed\")"
-          }, {
-            "alias" : "MiddleReverse",
-            "expression" : "col(\"PartSeriesPlusOption.MiddleReverse\")"
-          }, {
-            "alias" : "Positions.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Positions.CalloutValue\")"
-          }, {
-            "alias" : "CableRetention.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.CableRetention.CalloutValue\")"
-          }, {
-            "alias" : "SKPart",
-            "expression" : "col(\"PartSeriesPlusOption.SKPart\")"
-          }, {
-            "alias" : "PlatingDetail.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.PlatingDetail.CalloutValue\")"
-          }, {
-            "alias" : "SpaceOption",
-            "expression" : "col(\"PartSeriesPlusOption.SpaceOption\")"
-          }, {
-            "alias" : "Lead.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Lead.CalloutValue\")"
-          }, {
-            "alias" : "Breakout",
-            "expression" : "col(\"PartSeriesPlusOption.Breakout\")"
-          }, {
-            "alias" : "DaisyChain.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.DaisyChain.CalloutValue\")"
-          }, {
-            "alias" : "SurfaceMount",
-            "expression" : "col(\"PartSeriesPlusOption.SurfaceMount\")"
-          }, {
-            "alias" : "ReverseWire.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseWire.CalloutValue\")"
-          }, {
-            "alias" : "LeadFree",
-            "expression" : "col(\"PartSeriesPlusOption.LeadFree\")"
-          }, {
-            "alias" : "ReverseNotch.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseNotch.CalloutValue\")"
-          }, {
-            "alias" : "WiringOption.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.WiringOption.CalloutValue\")"
-          }, {
-            "alias" : "Packaging",
-            "expression" : "col(\"PartSeriesPlusOption.Packaging\")"
-          }, {
-            "alias" : "LeadFree.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.LeadFree.CalloutValue\")"
-          }, {
-            "alias" : "MechanicalSample",
-            "expression" : "col(\"PartSeriesPlusOption.MechanicalSample\")"
-          }, {
-            "alias" : "Engines",
-            "expression" : "col(\"PartSeriesPlusOption.Engines\")"
-          }, {
-            "alias" : "DeadChannels.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.DeadChannels.CalloutValue\")"
-          }, {
-            "alias" : "DaisyChain",
-            "expression" : "col(\"PartSeriesPlusOption.DaisyChain\")"
-          }, {
-            "alias" : "DifferentialPair",
-            "expression" : "col(\"PartSeriesPlusOption.DifferentialPair\")"
-          }, {
-            "alias" : "TransmittingChannels",
-            "expression" : "col(\"PartSeriesPlusOption.TransmittingChannels\")"
-          }, {
-            "alias" : "PowerPins.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.PowerPins.CalloutValue\")"
-          }, {
-            "alias" : "DeadChannels",
-            "expression" : "col(\"PartSeriesPlusOption.DeadChannels\")"
-          }, {
-            "alias" : "WiringOption",
-            "expression" : "col(\"PartSeriesPlusOption.WiringOption\")"
-          }, {
-            "alias" : "Speed.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Speed.CalloutValue\")"
-          }, {
-            "alias" : "Rows.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Rows.CalloutValue\")"
-          }, {
-            "alias" : "Alignment",
-            "expression" : "col(\"PartSeriesPlusOption.Alignment\")"
-          }, {
-            "alias" : "Ends",
-            "expression" : "col(\"PartSeriesPlusOption.Ends\")"
-          }, {
-            "alias" : "TailOption.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.TailOption.CalloutValue\")"
-          }, {
-            "alias" : "FiberType",
-            "expression" : "col(\"PartSeriesPlusOption.FiberType\")"
-          }, {
-            "alias" : "Engines.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Engines.CalloutValue\")"
-          }, {
-            "alias" : "Gender.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Gender.CalloutValue\")"
-          }, {
-            "alias" : "Packaging.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Packaging.CalloutValue\")"
-          }, {
-            "alias" : "Alignment.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Alignment.CalloutValue\")"
-          }, {
-            "alias" : "Shield",
-            "expression" : "col(\"PartSeriesPlusOption.Shield\")"
-          }, {
-            "alias" : "TransmittingChannels.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.TransmittingChannels.CalloutValue\")"
-          }, {
-            "alias" : "Key.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Key.CalloutValue\")"
-          }, {
-            "alias" : "PartId",
-            "expression" : "col(\"PartSeriesPlusOption.PartId\")"
-          }, {
-            "alias" : "Pad",
-            "expression" : "col(\"PartSeriesPlusOption.Pad\")"
-          }, {
-            "alias" : "Pad.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Pad.CalloutValue\")"
-          }, {
-            "alias" : "ReverseWire",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseWire\")"
-          }, {
-            "alias" : "Direction.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Direction.CalloutValue\")"
-          }, {
-            "alias" : "OutsideReverse",
-            "expression" : "col(\"PartSeriesPlusOption.OutsideReverse\")"
-          }, {
-            "alias" : "Shield.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Shield.CalloutValue\")"
-          }, {
-            "alias" : "ReverseNotch",
-            "expression" : "col(\"PartSeriesPlusOption.ReverseNotch\")"
-          }, {
-            "alias" : "CableOptions",
-            "expression" : "col(\"PartSeriesPlusOption.CableOptions\")"
-          }, {
-            "alias" : "FiberType.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.FiberType.CalloutValue\")"
-          }, {
-            "alias" : "Gender",
-            "expression" : "col(\"PartSeriesPlusOption.Gender\")"
-          }, {
-            "alias" : "Pitch",
-            "expression" : "col(\"PartSeriesPlusOption.Pitch\")"
-          }, {
-            "alias" : "OutsideReverse.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.OutsideReverse.CalloutValue\")"
-          }, {
-            "alias" : "Lead",
-            "expression" : "col(\"PartSeriesPlusOption.Lead\")"
-          }, {
-            "alias" : "Retention.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Retention.CalloutValue\")"
-          }, {
-            "alias" : "Pitch.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Pitch.CalloutValue\")"
-          }, {
-            "alias" : "PowerPins",
-            "expression" : "col(\"PartSeriesPlusOption.PowerPins\")"
-          }, {
-            "alias" : "MechanicalSample.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.MechanicalSample.CalloutValue\")"
-          }, {
-            "alias" : "Notch",
-            "expression" : "col(\"PartSeriesPlusOption.Notch\")"
-          }, {
-            "alias" : "Breakout.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.Breakout.CalloutValue\")"
-          }, {
-            "alias" : "OpticsType",
-            "expression" : "col(\"PartSeriesPlusOption.OpticsType\")"
-          }, {
-            "alias" : "IsValidMapping.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.IsValidMapping.CalloutValue\")"
-          }, {
-            "alias" : "OpticEnd",
-            "expression" : "col(\"PartSeriesPlusOption.OpticEnd\")"
-          }, {
-            "alias" : "PlatingDetail",
-            "expression" : "col(\"PartSeriesPlusOption.PlatingDetail\")"
-          }, {
-            "alias" : "WireGauge.CalloutValue",
-            "expression" : "col(\"PartSeriesPlusOption.WireGauge.CalloutValue\")"
-          }, {
-            "alias" : "Key",
-            "expression" : "col(\"PartSeriesPlusOption.Key\")"
-          }, {
-            "alias" : "Positions",
-            "expression" : "col(\"PartSeriesPlusOption.Positions\")"
-          }, {
-            "alias" : "Direction",
-            "expression" : "col(\"PartSeriesPlusOption.Direction\")"
-          }, {
             "alias" : "order_status",
             "expression" : "col(\"orders_csv.order_status\")"
           }, {
@@ -642,7 +399,7 @@
             "alias" : "order_id",
             "expression" : "col(\"orders_csv.order_id\")"
           } ],
-          "headAlias" : "datasets/PartSeriesPlusOption"
+          "headAlias" : "datasets/Orders"
         }
       } ]
     }, {
@@ -701,67 +458,6 @@
             "expression" : "col(\"orders_csv.order_id\")"
           } ],
           "headAlias" : "datasets/customers_csv"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "DSN_r2s_prod_edw_alt",
-      "sourceDatasetId" : "datasets/DSN_r2s_prod_edw_alt",
-      "canJoinWith" : [ {
-        "processLabel" : "customers_csv",
-        "processId" : "1",
-        "joinColumns" : [ "country_code" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "country_code" ],
-          "conditions" : [ {
-            "alias" : "DSN_r2s_prod_edw_alt",
-            "expression" : "(col(\"customers_csv.country_code\") == col(\"DSN_r2s_prod_edw_alt.country\"))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "plant",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.plant\")"
-          }, {
-            "alias" : "work_center_number",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.work_center_number\")"
-          }, {
-            "alias" : "work_center",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.work_center\")"
-          }, {
-            "alias" : "review_board",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.review_board\")"
-          }, {
-            "alias" : "facility",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.facility\")"
-          }, {
-            "alias" : "work_center_id",
-            "expression" : "col(\"DSN_r2s_prod_edw_alt.work_center_id\")"
-          }, {
-            "alias" : "phone",
-            "expression" : "col(\"customers_csv.phone\")"
-          }, {
-            "alias" : "first_name",
-            "expression" : "col(\"customers_csv.first_name\")"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "col(\"customers_csv.account_open_date\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"customers_csv.customer_id\")"
-          }, {
-            "alias" : "email",
-            "expression" : "col(\"customers_csv.email\")"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "col(\"customers_csv.account_flags\")"
-          }, {
-            "alias" : "country_code",
-            "expression" : "col(\"customers_csv.country_code\")"
-          }, {
-            "alias" : "last_name",
-            "expression" : "col(\"customers_csv.last_name\")"
-          } ],
-          "headAlias" : "datasets/DSN_r2s_prod_edw_alt"
         }
       } ]
     } ],
@@ -1004,7 +700,7 @@
       "metadata" : {
         "label" : "report_csv_fixed",
         "slug" : "report_csv_fixed",
-        "x" : 580,
+        "x" : 620,
         "y" : 120,
         "phase" : 0,
         "cache" : false,
@@ -1370,7 +1066,7 @@
       "metadata" : {
         "label" : "customers_csv",
         "slug" : "customers_csv",
-        "x" : 40,
+        "x" : 20,
         "y" : -140,
         "phase" : 0,
         "cache" : false,
