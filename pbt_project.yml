@@ -185,6 +185,25 @@ pipelines:
       - datasets/Shortcut_to_T_FBI_STG_MAQ_DIA
     subgraphs: []
     dependencies: {}
+  pipelines/Alteryx_customer_demo_fixed:
+    name: Alteryx_customer_demo_fixed
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-13 13:26:05'
+    datasets:
+      inputs:
+      - datasets/customers_csv
+      - datasets/customers_fixed
+      - datasets/orders_csv
+      - datasets/orders_fixed
+      outputs:
+      - datasets/report_csv
+      - datasets/report_csv_fixed
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/Output_File:
     name: Output_File
@@ -875,6 +894,19 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-09-03 15:08:42'
+  datasets/report_csv_fixed:
+    name: report_csv_fixed
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-09-13 13:31:54'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-13 13:31:54'
 templates: {}
 jobs: {}
 gemContainer:

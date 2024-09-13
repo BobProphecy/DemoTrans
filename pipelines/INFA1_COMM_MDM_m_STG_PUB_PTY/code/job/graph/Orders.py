@@ -14,5 +14,6 @@ def Orders(spark: SparkSession) -> DataFrame:
         ])
         )\
         .option("header", True)\
-        .option("sep", ",")\
+        .option("quote", "\"")\
+        .option("sep", "YES")\
         .csv("file")

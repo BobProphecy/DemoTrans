@@ -313,6 +313,58 @@
         }
       } ]
     }, {
+      "sourceLabel" : "report_csv_fixed",
+      "sourceDatasetId" : "datasets/report_csv_fixed",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "report_csv_fixed",
+            "expression" : "(col(\"Customers.customer_id\") == col(\"report_csv_fixed.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "Sum_amount",
+            "expression" : "col(\"report_csv_fixed.Sum_amount\")"
+          }, {
+            "alias" : "Count",
+            "expression" : "col(\"report_csv_fixed.Count\")"
+          }, {
+            "alias" : "Last_account_open_date",
+            "expression" : "col(\"report_csv_fixed.Last_account_open_date\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/report_csv_fixed"
+        }
+      } ]
+    }, {
       "sourceLabel" : "custorders_fixed",
       "sourceDatasetId" : "datasets/custorders_fixed",
       "canJoinWith" : [ {
