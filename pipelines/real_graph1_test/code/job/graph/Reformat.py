@@ -7,4 +7,8 @@ from job.config.ConfigStore import *
 from job.udfs.UDFs import *
 
 def Reformat(spark: SparkSession, inDF: DataFrame) -> DataFrame:
-    return inDF.select(col("customer_id"), lit(None).cast(StringType()).alias("full_name"), col("amount"))
+    return inDF.select(
+        col("customer_id"), 
+        concat(col("first_name"), lit(" "), col("last_name")).alias("full_name"), 
+        col("amount")
+    )

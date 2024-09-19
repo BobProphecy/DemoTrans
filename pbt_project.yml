@@ -11,20 +11,6 @@ buildSystemDetails:
   author: null
   createdAt: '2024-08-09 15:26:32'
 pipelines:
-  pipelines/real_graph1:
-    name: AbInitio-real_graph_raw
-    description: null
-    author: bobw@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-08-09 16:44:47'
-    datasets:
-      inputs: []
-      outputs:
-      - datasets/Output_File
-    subgraphs: []
-    dependencies: {}
   pipelines/real_graph2:
     name: AbInitio-real_graph_fixed
     description: Processes customer and order data by joining them on customer IDs,
@@ -205,6 +191,22 @@ pipelines:
       outputs:
       - datasets/report_csv
       - datasets/report_csv_fixed
+    subgraphs: []
+    dependencies: {}
+  pipelines/real_graph1_test:
+    name: AbInitio-real_graph_raw
+    description: null
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-09-19 16:31:58'
+    datasets:
+      inputs:
+      - datasets/Input_File
+      - datasets/Input_File_1
+      outputs:
+      - datasets/Output_File
     subgraphs: []
     dependencies: {}
 datasets:
@@ -910,6 +912,32 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-09-13 13:31:54'
+  datasets/Input_File_1:
+    name: Input_File_1
+    description: 'Dataset for componentName: Input_File_1'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-19 16:31:58'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-19 16:31:58'
+  datasets/Input_File:
+    name: Input_File
+    description: 'Dataset for componentName: Input_File'
+    author: bobw@prophecy.io
+    createdAt: '2024-09-19 16:31:58'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-09-19 16:31:58'
 templates: {}
 jobs: {}
 gemContainer:

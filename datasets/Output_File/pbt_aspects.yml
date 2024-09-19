@@ -3,10 +3,10 @@ schema:
   type: struct
   fields:
   - name: customer_id
-    type: integer
+    type: string
     nullable: true
     metadata:
-      description: Unique identifier for each customer in the dataset.
+      description: ''
       mappings: []
       tags: []
   - name: full_name
