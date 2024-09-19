@@ -159,7 +159,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Combines customer information from two datasets based on their customer IDs, including their names and associated amounts.",
+        "comment" : "Merges customer details with their corresponding transaction amounts for a comprehensive view of customer activity.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -173,7 +173,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each order placed by customers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -182,7 +182,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer who placed an order.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -191,7 +191,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Current status of the order, indicating whether it is Finished, Started, or Approved.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -200,7 +200,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The category of the order, indicating the type of project or activity it is associated with, such as Training, Research and Development, or Engineering.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -209,7 +209,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Date when the order was placed; Format is YYYY-MM-DD.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -218,7 +218,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Total monetary value of the order; Represents the cost associated with the order.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -235,7 +235,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -244,7 +244,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The first name of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -253,7 +253,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The surname of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -262,7 +262,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Contact number of the customer; Formatted as a standard phone number.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -271,7 +271,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Email address of the customer; Used for communication and account-related notifications.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -280,7 +280,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "ISO code representing the country of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -289,7 +289,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Date when the customer account was opened; Format is YYYY-MM-DD.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -298,7 +298,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Flags indicating the status or special conditions of the customer's account; In this case, it indicates if the account is active or has any special attributes.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -369,7 +369,7 @@
         } ],
         "allIn1" : null,
         "activeTab" : "expressions",
-        "columnsSelector" : [ "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##first_name", "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##amount", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##last_name", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id" ],
+        "columnsSelector" : [ "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##last_name", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##first_name", "Uj0tJ6OGvVecz66nmfJdU$$FMIHh9RVrrNnibSF2jcVy##customer_id", "_XOFSYUpScvZw6BMB-MHg$$tgHaTGF-XjxkPq5yJ8EPM##amount" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
@@ -391,7 +391,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "Reformats a DataFrame by selecting specific columns related to customer information.",
+        "comment" : "Streamlines customer data by selecting key identifiers and spending amounts.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -405,7 +405,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -414,7 +414,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The first name of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -423,7 +423,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The surname of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -432,7 +432,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Total monetary value of the order; Represents the cost associated with the order.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -481,7 +481,7 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##last_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##customer_id", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##first_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##amount" ]
+        "columnsSelector" : [ "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##first_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##amount", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##last_name", "u4fCcf4tWBZf-ADMCI_OR$$-k-QGYQEa456D9SS75Ocu##customer_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
@@ -499,7 +499,9 @@
         "phase" : 3,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Streamlines customer data by selecting essential details such as ID, name, and spending amount.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -512,7 +514,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -556,7 +558,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
         "expressions" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -585,7 +587,10 @@
             "expression" : "col(\"amount\")"
           },
           "description" : ""
-        } ]
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "Rollup_Reformat__inDF##amount", "Rollup_Reformat__inDF##first_name", "Rollup_Reformat__inDF##last_name", "Rollup_Reformat__inDF##customer_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
@@ -664,7 +669,9 @@
         "phase" : 3,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Ranks data entries based on their amounts, highlighting the highest values.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -677,7 +684,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -712,7 +719,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "columnsSelector" : [ "Sort_2__inDF##amount" ],
         "orders" : [ {
           "expression" : {
             "format" : "python",
@@ -737,7 +744,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Retrieves customer data from the 'hello world' database for analysis.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -764,7 +773,9 @@
         "phase" : 3,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Exports data to a CSV file, ensuring it is formatted correctly for further analysis or reporting.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -777,7 +788,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -824,6 +835,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
+        "comment" : "Aggregates customer data to summarize total spending along with their names.",
         "autoUpdateComment" : true
       },
       "ports" : {
@@ -837,7 +849,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -846,7 +858,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The first name of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -855,7 +867,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "The surname of the customer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -864,7 +876,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Total monetary value of the order; Represents the cost associated with the order.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -912,7 +924,7 @@
         "pivotColumn" : null,
         "pivotValues" : [ ],
         "activeTab" : "groupBy",
-        "columnsSelector" : [ "Rollup__inDF##amount", "Rollup__inDF##last_name", "Rollup__inDF##first_name" ],
+        "columnsSelector" : [ "Rollup__inDF##first_name", "Rollup__inDF##amount", "Rollup__inDF##customer_id", "Rollup__inDF##last_name" ],
         "groupBy" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -939,7 +951,9 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Retrieves order data from the 'hello_world' database for analysis.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ ],
@@ -1030,7 +1044,9 @@
         "phase" : 3,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "Restructures customer data by including a placeholder for full names while retaining customer IDs and spending amounts.",
+        "autoUpdateComment" : true
       },
       "ports" : {
         "inputs" : [ {
@@ -1043,7 +1059,7 @@
               "type" : "integer",
               "nullable" : true,
               "metadata" : {
-                "description" : "",
+                "description" : "Unique identifier for each customer in the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1087,7 +1103,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "columnsSelector" : [ ],
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
         "expressions" : [ {
           "target" : "customer_id",
           "expression" : {
@@ -1109,7 +1125,10 @@
             "expression" : "col(\"amount\")"
           },
           "description" : ""
-        } ]
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "Reformat__inDF##amount", "Reformat__inDF##customer_id" ]
       },
       "componentInfo" : {
         "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",

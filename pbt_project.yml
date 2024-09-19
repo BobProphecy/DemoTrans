@@ -27,7 +27,10 @@ pipelines:
     dependencies: {}
   pipelines/real_graph2:
     name: AbInitio-real_graph_fixed
-    description: null
+    description: Processes customer and order data by joining them on customer IDs,
+      aggregating order amounts, and reformatting the results. The pipeline generates
+      a sorted output of customer details and their total order amounts, preparing
+      the data for export in CSV format.
     author: bobw@prophecy.io
     mode: batch
     artefactID: ''

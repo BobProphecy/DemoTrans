@@ -6,41 +6,44 @@ schema:
     type: integer
     nullable: true
     metadata:
-      description: ''
+      description: Unique identifier for each order placed by customers.
       mappings: []
       tags: []
   - name: customer_id
     type: integer
     nullable: true
     metadata:
-      description: ''
+      description: Unique identifier for each customer who placed an order.
       mappings: []
       tags: []
   - name: order_status
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Current status of the order, indicating whether it is Finished,
+        Started, or Approved.
       mappings: []
       tags: []
   - name: order_category
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The category of the order, indicating the type of project or activity
+        it is associated with, such as Training, Research and Development, or Engineering.
       mappings: []
       tags: []
   - name: order_date
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Date when the order was placed; Format is YYYY-MM-DD.
       mappings: []
       tags: []
   - name: amount
     type: double
     nullable: true
     metadata:
-      description: ''
+      description: Total monetary value of the order; Represents the cost associated
+        with the order.
       mappings: []
       tags: []

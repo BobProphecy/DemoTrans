@@ -6,7 +6,7 @@ schema:
     type: integer
     nullable: true
     metadata:
-      description: ''
+      description: Unique identifier for each customer in the dataset.
       mappings: []
       tags: []
   - name: full_name

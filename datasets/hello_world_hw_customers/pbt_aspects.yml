@@ -6,55 +6,58 @@ schema:
     type: integer
     nullable: true
     metadata:
-      description: ''
+      description: Unique identifier for each customer in the dataset.
       mappings: []
       tags: []
   - name: first_name
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The first name of the customer.
       mappings: []
       tags: []
   - name: last_name
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: The surname of the customer.
       mappings: []
       tags: []
   - name: phone
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Contact number of the customer; Formatted as a standard phone number.
       mappings: []
       tags: []
   - name: email
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Email address of the customer; Used for communication and account-related
+        notifications.
       mappings: []
       tags: []
   - name: country_code
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: ISO code representing the country of the customer.
       mappings: []
       tags: []
   - name: account_open_date
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Date when the customer account was opened; Format is YYYY-MM-DD.
       mappings: []
       tags: []
   - name: account_flags
     type: string
     nullable: true
     metadata:
-      description: ''
+      description: Flags indicating the status or special conditions of the customer's
+        account; In this case, it indicates if the account is active or has any special
+        attributes.
       mappings: []
       tags: []
