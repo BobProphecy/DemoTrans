@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.1.4",
-        "pyPiVersion" : "1.9.14"
+        "mavenVersion" : "8.2.1",
+        "pyPiVersion" : "1.9.16"
       }
     },
     "id" : "test",
@@ -292,77 +292,46 @@
         }
       } ]
     }, {
-      "sourceLabel" : "orders_fixed_1",
-      "sourceDatasetId" : "datasets/orders_fixed",
+      "sourceLabel" : "Input_File",
+      "sourceDatasetId" : "datasets/Input_File",
       "canJoinWith" : [ {
-        "processLabel" : "orders_csv",
-        "processId" : "2",
-        "joinColumns" : [ "order_category", "order_status" ],
+        "processLabel" : "customers_csv",
+        "processId" : "1",
+        "joinColumns" : [ "customer_id", "country_code", "account_flags" ],
         "isRecommended" : false,
         "properties" : {
-          "columnsSelector" : [ "order_category", "order_status" ],
+          "columnsSelector" : [ "customer_id", "country_code", "account_flags" ],
           "conditions" : [ {
-            "alias" : "orders_fixed_1",
-            "expression" : "((col(\"orders_csv.order_category\") == col(\"orders_fixed_1.order_category\")) & (col(\"orders_csv.order_status\") == col(\"orders_fixed_1.order_status\")))",
+            "alias" : "Input_File",
+            "expression" : "(((col(\"customers_csv.account_flags\") == col(\"Input_File.account_flags\")) & (col(\"customers_csv.country_code\") == col(\"Input_File.country_code\"))) & (col(\"customers_csv.customer_id\") == col(\"Input_File.customer_id\")))",
             "joinType" : "inner"
           } ],
           "expressions" : [ {
-            "alias" : "order_status",
-            "expression" : "col(\"orders_csv.order_status\")"
+            "alias" : "phone",
+            "expression" : "col(\"customers_csv.phone\")"
           }, {
-            "alias" : "order_date",
-            "expression" : "col(\"orders_csv.order_date\")"
+            "alias" : "first_name",
+            "expression" : "col(\"customers_csv.first_name\")"
           }, {
-            "alias" : "amount",
-            "expression" : "col(\"orders_csv.amount\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"orders_csv.customer_id\")"
-          }, {
-            "alias" : "order_category",
-            "expression" : "col(\"orders_csv.order_category\")"
-          }, {
-            "alias" : "order_id",
-            "expression" : "col(\"orders_csv.order_id\")"
-          } ],
-          "headAlias" : "datasets/orders_fixed"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "hello_world_hw_orders",
-      "sourceDatasetId" : "datasets/hello_world_hw_orders",
-      "canJoinWith" : [ {
-        "processLabel" : "orders_csv",
-        "processId" : "2",
-        "joinColumns" : [ "order_category", "order_date", "order_status" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "order_category", "order_date", "order_status" ],
-          "conditions" : [ {
-            "alias" : "hello_world_hw_orders",
-            "expression" : "(((col(\"orders_csv.order_category\") == col(\"hello_world_hw_orders.order_category\")) & (col(\"orders_csv.order_date\") == col(\"hello_world_hw_orders.order_date\"))) & (col(\"orders_csv.order_status\") == col(\"hello_world_hw_orders.order_status\")))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "order_status",
-            "expression" : "col(\"orders_csv.order_status\")"
-          }, {
-            "alias" : "order_date",
-            "expression" : "col(\"orders_csv.order_date\")"
-          }, {
-            "alias" : "amount",
-            "expression" : "col(\"orders_csv.amount\")"
+            "alias" : "account_open_date",
+            "expression" : "col(\"customers_csv.account_open_date\")"
           }, {
             "alias" : "customer_id",
-            "expression" : "col(\"orders_csv.customer_id\")"
+            "expression" : "col(\"customers_csv.customer_id\")"
           }, {
-            "alias" : "order_category",
-            "expression" : "col(\"orders_csv.order_category\")"
+            "alias" : "email",
+            "expression" : "col(\"customers_csv.email\")"
           }, {
-            "alias" : "order_id",
-            "expression" : "col(\"orders_csv.order_id\")"
+            "alias" : "account_flags",
+            "expression" : "col(\"customers_csv.account_flags\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"customers_csv.country_code\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"customers_csv.last_name\")"
           } ],
-          "headAlias" : "datasets/hello_world_hw_orders"
+          "headAlias" : "datasets/Input_File"
         }
       } ]
     }, {
@@ -400,6 +369,64 @@
             "expression" : "col(\"orders_csv.order_id\")"
           } ],
           "headAlias" : "datasets/Orders"
+        }
+      } ]
+    }, {
+      "sourceLabel" : "Input_File_1",
+      "sourceDatasetId" : "datasets/Input_File_1",
+      "canJoinWith" : [ {
+        "processLabel" : "customers_csv",
+        "processId" : "1",
+        "joinColumns" : [ "customer_id" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "customer_id" ],
+          "conditions" : [ {
+            "alias" : "Input_File_1",
+            "expression" : "(col(\"customers_csv.customer_id\") == col(\"Input_File_1.customer_id\"))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "order_id",
+            "expression" : "col(\"Input_File_1.order_id\")"
+          }, {
+            "alias" : "order_status",
+            "expression" : "col(\"Input_File_1.order_status\")"
+          }, {
+            "alias" : "order_category",
+            "expression" : "col(\"Input_File_1.order_category\")"
+          }, {
+            "alias" : "order_date",
+            "expression" : "col(\"Input_File_1.order_date\")"
+          }, {
+            "alias" : "amount",
+            "expression" : "col(\"Input_File_1.amount\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"customers_csv.phone\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"customers_csv.first_name\")"
+          }, {
+            "alias" : "account_open_date",
+            "expression" : "col(\"customers_csv.account_open_date\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"customers_csv.customer_id\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"customers_csv.email\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"customers_csv.account_flags\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"customers_csv.country_code\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"customers_csv.last_name\")"
+          } ],
+          "headAlias" : "datasets/Input_File_1"
         }
       } ]
     }, {
@@ -690,7 +717,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1056,7 +1083,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },

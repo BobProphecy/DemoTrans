@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.1.4",
-        "pyPiVersion" : "1.9.14"
+        "mavenVersion" : "8.2.1",
+        "pyPiVersion" : "1.9.16"
       }
     },
     "id" : "test",

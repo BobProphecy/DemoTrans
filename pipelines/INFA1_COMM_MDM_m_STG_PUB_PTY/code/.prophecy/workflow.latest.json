@@ -7,8 +7,8 @@
     "codeGenConfiguration" : {
       "editableConfig" : false,
       "plibVersion" : {
-        "mavenVersion" : "8.1.4",
-        "pyPiVersion" : "1.9.14"
+        "mavenVersion" : "8.2.1",
+        "pyPiVersion" : "1.9.16"
       }
     },
     "id" : "graph",
@@ -475,6 +475,49 @@
         }
       } ]
     }, {
+      "sourceLabel" : "Input_File",
+      "sourceDatasetId" : "datasets/Input_File",
+      "canJoinWith" : [ {
+        "processLabel" : "Customers",
+        "processId" : "Customers",
+        "joinColumns" : [ "country_code", "account_flags", "account_open_date" ],
+        "isRecommended" : false,
+        "properties" : {
+          "columnsSelector" : [ "country_code", "account_flags", "account_open_date" ],
+          "conditions" : [ {
+            "alias" : "Input_File",
+            "expression" : "(((col(\"Customers.account_flags\") == col(\"Input_File.account_flags\")) & (col(\"Customers.account_open_date\") == col(\"Input_File.account_open_date\"))) & (col(\"Customers.country_code\") == col(\"Input_File.country_code\")))",
+            "joinType" : "inner"
+          } ],
+          "expressions" : [ {
+            "alias" : "account_open_date",
+            "expression" : "col(\"Customers.account_open_date\")"
+          }, {
+            "alias" : "last_name",
+            "expression" : "col(\"Customers.last_name\")"
+          }, {
+            "alias" : "first_name",
+            "expression" : "col(\"Customers.first_name\")"
+          }, {
+            "alias" : "phone",
+            "expression" : "col(\"Customers.phone\")"
+          }, {
+            "alias" : "email",
+            "expression" : "col(\"Customers.email\")"
+          }, {
+            "alias" : "country_code",
+            "expression" : "col(\"Customers.country_code\")"
+          }, {
+            "alias" : "account_flags",
+            "expression" : "col(\"Customers.account_flags\")"
+          }, {
+            "alias" : "customer_id",
+            "expression" : "col(\"Customers.customer_id\")"
+          } ],
+          "headAlias" : "datasets/Input_File"
+        }
+      } ]
+    }, {
       "sourceLabel" : "Customer_Orders_1",
       "sourceDatasetId" : "datasets/Customer_Orders",
       "canJoinWith" : [ {
@@ -524,55 +567,6 @@
             "expression" : "col(\"Customers.customer_id\")"
           } ],
           "headAlias" : "datasets/Customer_Orders"
-        }
-      } ]
-    }, {
-      "sourceLabel" : "Output_File",
-      "sourceDatasetId" : "datasets/Output_File",
-      "canJoinWith" : [ {
-        "processLabel" : "Customers",
-        "processId" : "Customers",
-        "joinColumns" : [ "customer_id" ],
-        "isRecommended" : false,
-        "properties" : {
-          "columnsSelector" : [ "customer_id" ],
-          "conditions" : [ {
-            "alias" : "Output_File",
-            "expression" : "(col(\"Customers.customer_id\") == col(\"Output_File.customer_id\"))",
-            "joinType" : "inner"
-          } ],
-          "expressions" : [ {
-            "alias" : "full_name",
-            "expression" : "col(\"Output_File.full_name\")"
-          }, {
-            "alias" : "amount",
-            "expression" : "col(\"Output_File.amount\")"
-          }, {
-            "alias" : "account_open_date",
-            "expression" : "col(\"Customers.account_open_date\")"
-          }, {
-            "alias" : "last_name",
-            "expression" : "col(\"Customers.last_name\")"
-          }, {
-            "alias" : "first_name",
-            "expression" : "col(\"Customers.first_name\")"
-          }, {
-            "alias" : "phone",
-            "expression" : "col(\"Customers.phone\")"
-          }, {
-            "alias" : "email",
-            "expression" : "col(\"Customers.email\")"
-          }, {
-            "alias" : "country_code",
-            "expression" : "col(\"Customers.country_code\")"
-          }, {
-            "alias" : "account_flags",
-            "expression" : "col(\"Customers.account_flags\")"
-          }, {
-            "alias" : "customer_id",
-            "expression" : "col(\"Customers.customer_id\")"
-          } ],
-          "headAlias" : "datasets/Output_File"
         }
       } ]
     } ],
@@ -893,7 +887,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1114,7 +1108,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1465,7 +1459,7 @@
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1594,7 +1588,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1741,7 +1735,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2014,7 +2008,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2275,7 +2269,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/SchemaTransform",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2386,7 +2380,7 @@
         } ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.28&projectSubscriptionProjectId=12654&path=gems/Aggregate",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.30&projectSubscriptionProjectId=12654&path=gems/Aggregate",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
